@@ -41,7 +41,7 @@ public class Contract implements Serializable {
   @JsonbDateFormat(value="yyyy-MM-dd")
   private LocalDate endDate;
 
-  @Column(name="VERSION", length=16)
+  @Column(name="VERSION", length=32)
   private String version;
 
   @OneToMany(mappedBy = "contract", cascade = CascadeType.ALL, orphanRemoval = true)
@@ -172,8 +172,8 @@ public class Contract implements Serializable {
 
   @Override
   public String toString() {
-    return "Contract [\n\tid=" + id + ", \n\tlicenseKey=" + licenseKey + ", \n\tstartDate=" + startDate + ", \n\tendDate=" + endDate
-        + ", \n\tversion=" + version + ", \n\tips=" + ips + ", \n\tfeatures=" + features + ", \n\tusers=" + users + ", \n\tcompanyId="
-        + companyId + "\n]";
+    return "Contract [id=" + id + ", licenseKey=" + licenseKey + ", startDate=" + startDate + ", endDate=" + endDate
+        + ", version=" + version + ", ips=" + ips + ", features=" + features + ", users=" + users + ", companyId="
+        + companyId + "]";
   }
 }

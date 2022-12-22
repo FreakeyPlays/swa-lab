@@ -15,12 +15,6 @@ public class PhoneNumberDao {
   @Inject
   EntityManager entityManager;
 
-  @Transactional
-  public PhoneNumber addPhoneNumber(PhoneNumber phoneNumber){
-    entityManager.persist(phoneNumber);
-    return phoneNumber;
-  }
-
   public List<PhoneNumber> getAllPhoneNumbers(){
     TypedQuery<PhoneNumber> query = entityManager.createQuery("SELECT phone FROM PhoneNumber phone", PhoneNumber.class);
     return query.getResultList();
@@ -33,16 +27,33 @@ public class PhoneNumberDao {
   }
 
   @Transactional
-  public PhoneNumber updatePhoneNumber(PhoneNumber phoneNumber){
-    entityManager.merge(phoneNumber);
-    return phoneNumber;
+  public PhoneNumber save(PhoneNumber number){
+    if(number.getId() != null){
+      entityManager.merge(number);
+    } else {
+      entityManager.persist(number);
+    }
+
+    return number;
   }
 
   @Transactional
-  public void deletePhoneNumber(Long id){
+  public void removePhoneNumber(Long id){
     TypedQuery<PhoneNumber> query = entityManager.createQuery("SELECT phone FROM PhoneNumber phone WHERE phone.id=:id", PhoneNumber.class);
     query.setParameter("id", id);
     PhoneNumber tempAddress = query.getSingleResult();
     entityManager.remove(entityManager.contains(tempAddress) ? tempAddress : entityManager.merge(tempAddress));
+  }
+
+  @Transactional
+  public void removeAllPhoneNumbers(){
+    try{
+      entityManager.createQuery("DELETE FROM PhoneNumber WHERE id >= 0")
+        .executeUpdate();
+    } catch (SecurityException | IllegalStateException e){
+      e.printStackTrace();
+    }
+
+    return;
   }
 }

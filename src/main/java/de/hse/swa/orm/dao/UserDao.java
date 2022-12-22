@@ -39,8 +39,10 @@ public class UserDao {
 
   @Transactional
   public User save(User user){
-    for(PhoneNumber number : user.getPhoneNumbers()){
-      number.setUser(user);
+    if(user.getPhoneNumbers() != null){
+      for(PhoneNumber number : user.getPhoneNumbers()){
+        number.setUser(user);
+      }
     }
 
     if(user.getId() != null){

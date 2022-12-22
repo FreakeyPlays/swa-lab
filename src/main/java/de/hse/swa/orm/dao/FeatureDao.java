@@ -15,12 +15,6 @@ public class FeatureDao {
   @Inject
   EntityManager entityManager;
 
-  @Transactional
-  public Feature addFeature(Feature feature){
-    entityManager.persist(feature);
-    return feature;
-  }
-
   public List<Feature> getAllFeatures(){
     TypedQuery<Feature> query = entityManager.createQuery("SELECT feature FROM Feature feature", Feature.class);
     return query.getResultList();
@@ -33,16 +27,33 @@ public class FeatureDao {
   }
 
   @Transactional
-  public Feature updateFeature(Feature feature){
-    entityManager.merge(feature);
+  public Feature save(Feature feature){
+    if(feature.getId() != null){
+      entityManager.merge(feature);
+    } else {
+      entityManager.persist(feature);
+    }
+
     return feature;
   }
 
   @Transactional
-  public void deleteFeature(Long id){
+  public void removeFeature(Long id){
     TypedQuery<Feature> query = entityManager.createQuery("SELECT feature FROM Feature feature WHERE feature.id=:id", Feature.class);
     query.setParameter("id", id);
     Feature tempAddress = query.getSingleResult();
     entityManager.remove(entityManager.contains(tempAddress) ? tempAddress : entityManager.merge(tempAddress));
+  }
+
+  @Transactional
+  public void removeAllFeatures(){
+    try{
+      entityManager.createQuery("DELETE FROM Feature WHERE id >= 0")
+        .executeUpdate();
+    } catch (SecurityException | IllegalStateException e){
+      e.printStackTrace();
+    }
+
+    return;
   }
 }

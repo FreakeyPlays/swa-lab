@@ -15,12 +15,6 @@ public class IpDao {
   @Inject
   EntityManager entityManager;
 
-  @Transactional
-  public Ip addIp(Ip ip){
-    entityManager.persist(ip);
-    return ip;
-  }
-
   public List<Ip> getAllIps(){
     TypedQuery<Ip> query = entityManager.createQuery("SELECT ip FROM Ip ip", Ip.class);
     return query.getResultList();
@@ -33,16 +27,33 @@ public class IpDao {
   }
 
   @Transactional
-  public Ip updateIp(Ip ip){
-    entityManager.merge(ip);
+  public Ip save(Ip ip){
+    if(ip.getId() != null){
+      entityManager.merge(ip);
+    } else {
+      entityManager.persist(ip);
+    }
+
     return ip;
   }
 
   @Transactional
-  public void deleteIp(Long id){
+  public void removeIp(Long id){
     TypedQuery<Ip> query = entityManager.createQuery("SELECT ip FROM Ip ip WHERE ip.id=:id", Ip.class);
     query.setParameter("id", id);
     Ip tempAddress = query.getSingleResult();
     entityManager.remove(entityManager.contains(tempAddress) ? tempAddress : entityManager.merge(tempAddress));
+  }
+
+  @Transactional
+  public void removeAllIps(){
+    try{
+      entityManager.createQuery("DELETE FROM Ip WHERE id >= 0")
+        .executeUpdate();
+    } catch (SecurityException | IllegalStateException e){
+      e.printStackTrace();
+    }
+
+    return;
   }
 }

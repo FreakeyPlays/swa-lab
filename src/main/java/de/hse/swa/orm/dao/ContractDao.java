@@ -42,21 +42,29 @@ public class ContractDao {
 
   @Transactional
   public Contract save(Contract contract){
-    contract.setCompanyId(entityManager.find(Company.class, contract.getCompany().getId()));
-    for(int i = 0; i < contract.getUsers().size(); i++){
-      contract.getUsers().set(i, entityManager.find(User.class, contract.getUsers().get(i).getId()));
+    if(contract.getCompany() != null){
+      contract.setCompanyId(entityManager.find(Company.class, contract.getCompany().getId()));
     }
-    for(int i = 0; i < contract.getIps().size(); i++){
-      contract.getIps().get(i).setContract(contract);
+    if(contract.getUsers() != null){
+      for(int i = 0; i < contract.getUsers().size(); i++){
+        contract.getUsers().set(i, entityManager.find(User.class, contract.getUsers().get(i).getId()));
+      }
     }
-    for(int i = 0; i < contract.getFeatures().size(); i++){
-      contract.getFeatures().get(i).setContract(contract);
+    if(contract.getIps() != null){
+      for(int i = 0; i < contract.getIps().size(); i++){
+        contract.getIps().get(i).setContract(contract);
+      }
+    }
+    if(contract.getFeatures() != null){
+      for(int i = 0; i < contract.getFeatures().size(); i++){
+        contract.getFeatures().get(i).setContract(contract);
+      }
     }
 
     if(contract.getId() != null){
   	  entityManager.merge(contract);
     } else {
-      entityManager.persist(contract);
+     entityManager.persist(contract);
     }
 
     return contract;
