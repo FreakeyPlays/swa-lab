@@ -52,14 +52,14 @@ public class ContractResource {
       Ip newIp = contract.getIps().get(i);
 
       newIp.setContract(newContract);
-      _ipDao.addIp(newIp);
+      _ipDao.save(newIp);
     }
 
     for(int i = 0; i < contract.getFeatures().size(); i++){
       Feature newFeature = contract.getFeatures().get(i);
 
       newFeature.setContract(newContract);
-      _featureDao.addFeature(newFeature);
+      _featureDao.save(newFeature);
     }
 
     return contract;

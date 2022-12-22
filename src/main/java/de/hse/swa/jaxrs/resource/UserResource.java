@@ -16,7 +16,6 @@ import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 
 import de.hse.swa.orm.dao.CompanyDao;
-import de.hse.swa.orm.dao.PhoneNumberDao;
 import de.hse.swa.orm.dao.UserDao;
 import de.hse.swa.orm.model.Company;
 import de.hse.swa.orm.model.Contract;
@@ -29,9 +28,6 @@ public class UserResource {
 
   @Inject
   UserDao _userDao;
-
-  @Inject
-  PhoneNumberDao _phoneNumberDao;
 
   @Inject
   CompanyDao _companyDao;
