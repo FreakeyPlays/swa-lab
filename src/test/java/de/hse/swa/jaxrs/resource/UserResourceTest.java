@@ -114,6 +114,22 @@ public class UserResourceTest {
   }
 
   @Test
+  public void loginUserTest(){
+    final String prefix = "A_";
+    User user = createUserDatabaseEntry(prefix);
+
+    given()
+      .contentType("application/json")
+      .queryParam("username", user.getUsername())
+      .queryParam("password", user.getPassword())
+    .when()
+      .post("/user/login")
+    .then()
+      .statusCode(200)
+      .body(equalTo("true"));
+  }
+
+  @Test
   public void getUserByIdTest(){
     final String prefix = "A_";
     User user = createUserDatabaseEntry(prefix);
