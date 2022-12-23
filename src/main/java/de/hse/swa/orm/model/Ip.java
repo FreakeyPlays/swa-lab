@@ -16,6 +16,8 @@ import javax.persistence.Table;
 @Entity
 @Table(name="T_ips")
 public class Ip implements Serializable {
+  private static final long serialVersionUID = 1L;
+
   @Id
   @SequenceGenerator(name="ipSeq", sequenceName="ZSEQ_IP_ID", allocationSize=1, initialValue=10)
   @GeneratedValue(generator="ipSeq")

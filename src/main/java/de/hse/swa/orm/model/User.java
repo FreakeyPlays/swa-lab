@@ -21,6 +21,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name="T_user")
 public class User implements Serializable {
+  private static final long serialVersionUID = 1L;
   
   @Id
   @SequenceGenerator(name="userSeq", sequenceName="ZSEQ_USER_ID", allocationSize=1, initialValue=10)

@@ -24,6 +24,8 @@ import javax.persistence.Table;
 @Entity
 @Table(name="T_contract")
 public class Contract implements Serializable {
+  private static final long serialVersionUID = 1L;
+
   @Id
   @SequenceGenerator(name="contractSeq", sequenceName="ZSEQ_CONTRACT_ID", allocationSize=1, initialValue=10)
   @GeneratedValue(generator="contractSeq")

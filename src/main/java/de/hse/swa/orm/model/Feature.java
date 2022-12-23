@@ -15,6 +15,8 @@ import javax.persistence.Table;
 @Entity
 @Table(name="T_feature")
 public class Feature implements Serializable {
+  private static final long serialVersionUID = 1L;
+
   @Id
   @SequenceGenerator(name="featureSeq", sequenceName="ZSEQ_FEATURE_ID", allocationSize=1, initialValue=10)
   @GeneratedValue(generator="featureSeq")

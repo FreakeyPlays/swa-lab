@@ -16,6 +16,8 @@ import javax.persistence.Table;
 @Entity
 @Table(name="T_phoneNumber")
 public class PhoneNumber implements Serializable {
+  private static final long serialVersionUID = 1L;
+
   @Id
   @SequenceGenerator(name="phoneNumberSeq", sequenceName="ZSEQ_PHONENUMBER_ID", allocationSize=1, initialValue=10)
   @GeneratedValue(generator="phoneNumberSeq")

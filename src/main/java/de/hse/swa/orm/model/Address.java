@@ -15,6 +15,8 @@ import javax.persistence.Table;
 @Entity
 @Table(name="T_address")
 public class Address implements Serializable {
+  private static final long serialVersionUID = 1L;
+
   @Id
   @SequenceGenerator(name="addressSeq", sequenceName="ZSEQ_ADDRESS_ID", allocationSize=1, initialValue=10)
   @GeneratedValue(generator="addressSeq")
