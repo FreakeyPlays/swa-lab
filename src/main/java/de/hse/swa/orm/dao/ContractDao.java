@@ -9,6 +9,8 @@ import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
 import javax.transaction.Transactional;
 
+import org.jboss.logging.Logger;
+
 import de.hse.swa.orm.model.Company;
 import de.hse.swa.orm.model.Contract;
 import de.hse.swa.orm.model.User;
@@ -18,12 +20,18 @@ public class ContractDao {
   @Inject
   EntityManager entityManager;
 
+  private static final Logger LOGGER = Logger.getLogger(ContractDao.class);
+
   public List<Contract> getAllContracts() { 
+    LOGGER.debug("ContractDao.java(26): getting all Contracts in the Database");
+
   	TypedQuery<Contract> query = entityManager.createQuery("SELECT contract FROM Contract contract", Contract.class);
   	return query.getResultList();
   }
 
   public List<Contract> getActiveContracts() {
+    LOGGER.debug("ContractDao.java(33): getting all active Contracts in the Database");
+
   	LocalDate today = LocalDate.now();
     TypedQuery<Contract> query = entityManager.createQuery("SELECT contract FROM Contract contract WHERE contract.endDate >:today", Contract.class);
     query.setParameter("today", today);
@@ -31,17 +39,23 @@ public class ContractDao {
   }
 
   public List<Contract> getContractsByCompany(Company company) { 
+    LOGGER.debug("ContractDao.java(42): getting all Contracts of the Company with id=" + company.getId());
+
   	TypedQuery<Contract> query = entityManager.createQuery("SELECT contract FROM Contract contract WHERE contract.company.id=:id", Contract.class);
   	query.setParameter("id", company.getId());
   	return query.getResultList();
   }
 
   public Contract getContract(Long id) { 
+    LOGGER.debug("ContractDao.java(50): getting a Contract with id=" + id);
+
   	 return entityManager.find(Contract.class, id);
   }
 
   @Transactional
   public Contract save(Contract contract){
+    LOGGER.debug("ContractDao.java(57): Creating or Updating a Contract");
+
     if(contract.getCompanyId() != null){
       contract.setCompanyId(entityManager.find(Company.class, contract.getCompanyId().getId()));
     }
@@ -75,6 +89,8 @@ public class ContractDao {
 
   @Transactional
   public void removeAllContracts(){
+    LOGGER.debug("ContractDao.java(92): removing all Contracts in the Database");
+
     try{
       entityManager.createQuery("DELETE FROM Feature WHERE id >= 0")
         .executeUpdate();
@@ -91,6 +107,8 @@ public class ContractDao {
 
   @Transactional
   public void removeContract(Long id) {
+    LOGGER.debug("ContractDao.java(110): removing a Contract with id=" + id);
+
     entityManager.remove(entityManager.find(Contract.class, id));
   }
 }
