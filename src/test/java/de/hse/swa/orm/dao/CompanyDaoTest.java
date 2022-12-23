@@ -2,21 +2,13 @@ package de.hse.swa.orm.dao;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import java.util.ArrayList;
-
 import javax.inject.Inject;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import de.hse.swa.orm.dao.CompanyDao;
-import de.hse.swa.orm.dao.ContractDao;
-import de.hse.swa.orm.dao.UserDao;
 import de.hse.swa.orm.model.Address;
 import de.hse.swa.orm.model.Company;
-import de.hse.swa.orm.model.Contract;
-import de.hse.swa.orm.model.User;
-
 import io.quarkus.test.junit.QuarkusTest;
 
 @QuarkusTest

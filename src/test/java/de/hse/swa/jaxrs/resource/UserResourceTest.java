@@ -1,18 +1,14 @@
 package de.hse.swa.jaxrs.resource;
 
 import static io.restassured.RestAssured.given;
-import static org.hamcrest.Matchers.hasKey;
-
-import java.util.ArrayList;
-
 import static org.hamcrest.Matchers.equalTo;
-
+import static org.hamcrest.Matchers.hasKey;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import de.hse.swa.orm.model.Company;
 import de.hse.swa.orm.model.Address;
+import de.hse.swa.orm.model.Company;
 import de.hse.swa.orm.model.User;
 import io.quarkus.test.junit.QuarkusTest;
 

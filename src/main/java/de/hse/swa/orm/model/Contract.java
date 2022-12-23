@@ -2,7 +2,6 @@ package de.hse.swa.orm.model;
 
 import java.io.Serializable;
 import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.json.bind.annotation.JsonbDateFormat;

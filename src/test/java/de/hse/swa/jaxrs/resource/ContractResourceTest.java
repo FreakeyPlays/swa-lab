@@ -1,8 +1,8 @@
 package de.hse.swa.jaxrs.resource;
 
 import static io.restassured.RestAssured.given;
-import static org.hamcrest.Matchers.hasKey;
 import static org.hamcrest.Matchers.equalTo;
+import static org.hamcrest.Matchers.hasKey;
 
 import java.time.LocalDate;
 
@@ -11,10 +11,10 @@ import javax.inject.Inject;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import de.hse.swa.orm.model.Contract;
 import de.hse.swa.orm.dao.CompanyDao;
 import de.hse.swa.orm.model.Address;
 import de.hse.swa.orm.model.Company;
+import de.hse.swa.orm.model.Contract;
 import io.quarkus.test.junit.QuarkusTest;
 
 @QuarkusTest
