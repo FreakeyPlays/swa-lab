@@ -149,10 +149,6 @@ public class User implements Serializable {
     this.contracts = contracts;
   }
 
-  public void addContract(Contract contract){
-    this.contracts.add(contract);
-  }
-
   @JsonbTransient
   public Company getCompanyId() {
     return companyId;

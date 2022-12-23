@@ -51,12 +51,6 @@ public class ContractDao {
         contract.getUsers().set(i, entityManager.find(User.class, contract.getUsers().get(i).getId()));
       }
     }
-
-    if(contract.getUsers() != null){
-      for(int i = 0; i < contract.getUsers().size(); i++){
-        contract.getUsers().get(i).addContract(contract);
-      }
-    }
     
     if(contract.getIps() != null){
       for(int i = 0; i < contract.getIps().size(); i++){
