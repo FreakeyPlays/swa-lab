@@ -94,7 +94,6 @@ public class ContractDaoTest {
     assertEquals(prefixes.length, _contractDao.getAllContracts().size());
   }
 
-  @Disabled
   @Test
   public void updateContractTest(){
     final String prefix = "A_";

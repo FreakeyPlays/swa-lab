@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.json.bind.annotation.JsonbProperty;
 import javax.json.bind.annotation.JsonbTransient;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -40,8 +41,8 @@ public class User implements Serializable {
   @Column(name="EMAIL", length=64, unique=true)
   private String email;
 
-  @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
-  private List<PhoneNumber> phoneNumbers;
+  @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true, fetch =  FetchType.EAGER)
+  private List<PhoneNumber> phoneNumbers = new ArrayList<>();
 
   @Column(name="IS_ADMIN")
   private boolean isAdmin;
@@ -50,7 +51,8 @@ public class User implements Serializable {
   private String password;
 
   @ManyToMany(mappedBy = "users")
-  private List<Contract> contracts;
+  @JsonbTransient
+  private List<Contract> contracts = new ArrayList<>();
 
   @ManyToOne(fetch = FetchType.LAZY)
   @JoinColumn(name="COMPANY_ID", referencedColumnName = "ID")
@@ -139,22 +141,8 @@ public class User implements Serializable {
     this.password = password;
   }
 
-  @JsonbTransient
-  public List<Contract> getContractObjects(){
+  public List<Contract> getContracts() {
     return contracts;
-  }
-
-  public List<Long> getContracts() {
-    List<Long> list = new ArrayList<>();
-
-    if(contracts == null){
-      return list;
-    }
-
-    for(int i = 0; i < contracts.size(); i++){
-      list.add(contracts.get(i).getId());
-    }
-    return list;
   }
 
   @JsonbTransient
@@ -162,23 +150,23 @@ public class User implements Serializable {
     this.contracts = contracts;
   }
 
-  @JsonbTransient
-  public Company getCompany(){
-    return companyId;
+  public void addContract(Contract contract){
+    this.contracts.add(contract);
   }
 
-  public Long getCompanyId() {
-    return companyId.getId();
+  @JsonbTransient
+  public Company getCompanyId() {
+    return companyId;
   }
 
   public void setCompanyId(Company companyId) {
     this.companyId = companyId;
   }
 
-  @Override
+  @Override     
   public String toString() {
     return "User [id=" + id + ", lastName=" + lastName + ", firstName=" + firstName + ", username=" + username
-        + ", email=" + email + ", phoneNumbers=" + phoneNumbers + ", isAdmin=" + isAdmin + 
-        ", password=" + password + ", contracts=" + contracts + ", companyId=" + companyId + "]";
+        + ", email=" + email + ", phoneNumbers=" + phoneNumbers + ", isAdmin=" + isAdmin + ", password=" + password
+        + ", contracts=" + contracts + ", companyId=" + companyId + "]";
   }
 }

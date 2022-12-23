@@ -36,13 +36,13 @@ public class UserResourceTest {
     user.setEmail(prefix + this.default_email);
     user.setIsAdmin(this.default_isAdmin);
     user.setPassword(prefix + this.default_password);
-    Company company = createCompany();
+    Company company = createCompany(prefix);
     user.setCompanyId(company);
 
     return user;
   }
 
-  private Company createCompanyObject(){
+  private Company createCompanyObject(String prefix){
     Address address = new Address();
     address.setCountry("Germany");
     address.setArea("Baden-Wuettemberg");
@@ -50,13 +50,13 @@ public class UserResourceTest {
     address.setZipCode(12345);
     address.setStreetName("Falndernstrasse");
     address.setHouseNumber(101);
-    Company company = new Company("Company", "Department", null, null, address);
+    Company company = new Company(prefix + "Company", "Department", null, null, address);
 
     return company;
   }
 
-  private Company createCompany(){
-    Company company = createCompanyObject();
+  private Company createCompany(String prefix){
+    Company company = createCompanyObject(prefix);
 
     this.company_id = 
     given()
@@ -114,10 +114,7 @@ public class UserResourceTest {
       .post("/user/create")
     .then()
       .statusCode(200)
-      .body(
-        "$", hasKey("id"),
-        "id", equalTo(this.current_id)
-      );
+      .body("$", hasKey("id"));
   }
 
   @Test
@@ -132,7 +129,7 @@ public class UserResourceTest {
       .get("/user/{id}")
     .then()
       .statusCode(200)
-      .body("id", equalTo(this.current_id));
+      .body("id.longValue()", equalTo(this.current_id));
   }
 
   @Test
@@ -163,7 +160,7 @@ public class UserResourceTest {
       .get("/user/username/{username}")
     .then()
       .statusCode(200)
-      .body("id", equalTo(this.current_id));
+      .body("id.longValue()", equalTo(this.current_id));
   }
 
   @Test
@@ -171,6 +168,7 @@ public class UserResourceTest {
     final String prefix = "A_";
     final String updatedFistName = "Updated Max";
     User user = createUserDatabaseEntry(prefix);
+    user.setId(this.current_id);
     user.setFirstName(updatedFistName);
 
     given()

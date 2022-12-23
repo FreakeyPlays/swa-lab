@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.json.bind.annotation.JsonbDateFormat;
+import javax.json.bind.annotation.JsonbProperty;
 import javax.json.bind.annotation.JsonbTransient;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -39,21 +40,22 @@ public class Contract implements Serializable {
 
   @Column(name="END_DATE")
   @JsonbDateFormat(value="yyyy-MM-dd")
-  private LocalDate endDate;
+  private LocalDate endDate; 
 
   @Column(name="VERSION", length=32)
   private String version;
 
-  @OneToMany(mappedBy = "contract", cascade = CascadeType.ALL, orphanRemoval = true)
+  @OneToMany(mappedBy = "contract", cascade = CascadeType.ALL)
   private List<Ip> ips;
 
-  @OneToMany(mappedBy = "contract", cascade = CascadeType.ALL, orphanRemoval = true)
+  @OneToMany(mappedBy = "contract", cascade = CascadeType.ALL)
   private List<Feature> features;
 
   @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
   @JoinTable(name="CONTRACT_USER",
              joinColumns = @JoinColumn(name="CONTRACT_ID"),
              inverseJoinColumns = @JoinColumn(name="USER_ID"))
+  @JsonbProperty("users")
   private List<User> users;
 
   @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
@@ -134,36 +136,17 @@ public class Contract implements Serializable {
     this.features = features;
   }
 
-  @JsonbTransient
-  public List<User> getUsers(){
+  public List<User> getUsers() {
     return users;
-  }
-
-  public List<Long> getUserIds() {
-    List<Long> list = new ArrayList<>();
-
-    if(users == null){
-      return list;
-    }
-
-    for(int i = 0; i < users.size(); i++){
-      list.add(users.get(i).getId());
-    }
-
-    return list;
   }
 
   public void setUsers(List<User> users) {
     this.users = users;
   }
-
+ 
   @JsonbTransient
-  public Company getCompany(){
+  public Company getCompanyId() {
     return companyId;
-  }
-
-  public Long getCompanyId() {
-    return companyId.getId();
   }
 
   public void setCompanyId(Company companyId) {

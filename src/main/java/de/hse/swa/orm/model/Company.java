@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.json.bind.annotation.JsonbProperty;
 import javax.json.bind.annotation.JsonbTransient;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -30,13 +31,15 @@ public class Company implements Serializable {
   @Column(name="DEPARTMENT", length=64)
   private String department;
 
-  @OneToMany(mappedBy = "companyId", cascade = CascadeType.ALL, orphanRemoval = true)
+  @OneToMany(mappedBy = "companyId", cascade = CascadeType.ALL)
+  @JsonbProperty("contracts")
   private List<Contract> contracts;
 
-  @OneToMany(mappedBy = "companyId", cascade = CascadeType.ALL, orphanRemoval = true)
+  @OneToMany(mappedBy = "companyId", cascade = CascadeType.ALL)
+  @JsonbProperty("users")
   private List<User> users;
 
-  @OneToOne(mappedBy = "company", cascade = CascadeType.ALL, orphanRemoval = true)
+  @OneToOne(mappedBy = "company", cascade = CascadeType.ALL)
   private Address address;
 
   public Company(){}
@@ -77,46 +80,16 @@ public class Company implements Serializable {
     this.department = department;
   }
 
-  @JsonbTransient
-  public List<Contract> getContractObjects(){
+  public List<Contract> getContracts() {
     return contracts;
-  }
-
-  public List<Long> getContracts() {
-    List<Long> list = new ArrayList<>();
-
-    if(contracts == null){
-      return list;
-    }
-
-    for(int i = 0; i < contracts.size(); i++){
-      list.add(contracts.get(i).getId());
-    }
-
-    return list;
   }
 
   public void setContracts(List<Contract> contracts) {
     this.contracts = contracts;
   }
 
-  @JsonbTransient
-  public List<User> getUserObjects(){
+  public List<User> getUsers() {
     return users;
-  }
-
-  public List<Long> getUsers() {
-    List<Long> list = new ArrayList<>();
-
-    if(users == null){
-      return list;
-    }
-
-    for(int i = 0; i < users.size(); i++){
-      list.add(users.get(i).getId());
-    }
-    
-    return list;
   }
 
   public void setUsers(List<User> users) {

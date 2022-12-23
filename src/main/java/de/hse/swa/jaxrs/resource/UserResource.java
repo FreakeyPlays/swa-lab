@@ -124,7 +124,7 @@ public class UserResource {
   @Produces(MediaType.APPLICATION_JSON)
   @Path("{id}/contracts")
   public List<Contract> getContractsOfUser(@PathParam("id") Long id){
-    return _userDao.getUserById(id).getContractObjects();
+    return _userDao.getUserById(id).getContracts();
   }
 
   /**
@@ -136,7 +136,7 @@ public class UserResource {
   @Produces(MediaType.APPLICATION_JSON)
   @Path("{id}/company")
   public Company getCompanyOfUser(@PathParam("id") Long id){
-    return _userDao.getUserById(id).getCompany();
+    return _userDao.getUserById(id).getCompanyId();
   }
 
   /**

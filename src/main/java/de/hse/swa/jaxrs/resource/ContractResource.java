@@ -46,23 +46,7 @@ public class ContractResource {
   @Produces(MediaType.APPLICATION_JSON)
   @Path("create")
   public Contract createContract(Contract contract){
-    Contract newContract = _contractDao.save(contract);
-
-    for(int i = 0; i < contract.getIps().size(); i++){
-      Ip newIp = contract.getIps().get(i);
-
-      newIp.setContract(newContract);
-      _ipDao.save(newIp);
-    }
-
-    for(int i = 0; i < contract.getFeatures().size(); i++){
-      Feature newFeature = contract.getFeatures().get(i);
-
-      newFeature.setContract(newContract);
-      _featureDao.save(newFeature);
-    }
-
-    return contract;
+    return _contractDao.save(contract);
   }
 
   /**
@@ -108,7 +92,7 @@ public class ContractResource {
   @Produces(MediaType.APPLICATION_JSON)
   @Path("{id}/company")
   public Company getCompanyByContract(@PathParam("id") Long id){
-    return _contractDao.getContract(id).getCompany();
+    return _contractDao.getContract(id).getCompanyId();
   }
 
   /**

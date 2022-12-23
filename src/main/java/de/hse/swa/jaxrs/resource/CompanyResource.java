@@ -93,7 +93,7 @@ public class CompanyResource {
   @Produces(MediaType.APPLICATION_JSON)
   @Path("{id}/users")
   public List<User> getUsersOfCompany(@PathParam("id") Long id){
-    return _companyDao.getCompanyById(id).getUserObjects();
+    return _companyDao.getCompanyById(id).getUsers();
   }
 
   /**
@@ -105,7 +105,7 @@ public class CompanyResource {
   @Produces(MediaType.APPLICATION_JSON)
   @Path("{id}/contracts")
   public List<Contract> getContractsOfCompany(@PathParam("id") Long id){
-    return _companyDao.getCompanyById(id).getContractObjects();
+    return _companyDao.getCompanyById(id).getContracts();
   }
 
   /**

@@ -118,7 +118,6 @@ public class CompanyResourceTest {
       );
   }
 
-  @Disabled
   @Test
   public void updateCompanyTest(){
     Company company = createCompanyObject("A_");
