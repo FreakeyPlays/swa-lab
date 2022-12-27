@@ -145,7 +145,20 @@ public class UserResourceTest {
       .body("$.size", equalTo(prefixes.length));
   }
 
-  //TODO: Get all Users of Company
+  @Test
+  public void getAllUsersOfCompanyTest(){
+    final String prefix = "A_";
+    createUserDatabaseEntry(prefix);
+
+    given()
+      .contentType("application/json")
+      .pathParam("id", this.company_id)
+    .when()
+      .get("/user/all/company/{id}")
+    .then()
+      .statusCode(200)
+      .body("$.size", equalTo(0));
+  }
 
   @Test
   public void getUserByIdTest(){
@@ -177,11 +190,35 @@ public class UserResourceTest {
       .body("id.longValue()", equalTo(this.current_id));
   }
 
-  //TODO: Get PhoneNumbers of User
+  @Test
+  public void getPhoneNumbersOfUserTest(){
+    final String prefix = "A_";
+    createUserDatabaseEntry(prefix);
 
-  //TODO: Get Contracts of User
+    given()
+      .contentType("application/json")
+      .pathParam("id", this.current_id)
+    .when()
+      .get("/user/{id}/phone")
+    .then()
+      .statusCode(200)
+      .body("$.size", equalTo(0));
+  }
 
-  //TODO: Get Company of User
+  @Test
+  public void getContractsOfUserTest(){
+    final String prefix = "A_";
+    createUserDatabaseEntry(prefix);
+
+    given()
+      .contentType("application/json")
+      .pathParam("id", this.current_id)
+    .when()
+      .get("/user/{id}/contracts")
+    .then()
+      .statusCode(200)
+      .body("$.size", equalTo(0));
+  }
 
   @Test
   public void updateUserTest(){
@@ -201,7 +238,20 @@ public class UserResourceTest {
       .body("firstName", equalTo(updatedFistName));
   }
 
-  //TODO: Remove all Users
+  @Test
+  public void removeAllUsersTest(){
+    final String[] prefixes = {"A_", "B_", "C_"};
+    for(int i = 0; i < prefixes.length; i++){
+      createUserDatabaseEntry(prefixes[i]);
+    }
+
+    given()
+      .contentType("application/json")
+    .when()
+      .delete("/user/remove/all")
+    .then()
+      .statusCode(204);
+  }
 
   @Test
   public void deleteUserTest(){
