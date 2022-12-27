@@ -34,7 +34,7 @@ public class ContractResourceTest {
     contract.setLicenseKey(prefix + this.default_licenseKey);
     contract.setStartDate(this.default_startDate);
     contract.setEndDate(this.default_endDate);
-    contract.setVersion(prefix + this.default_licenseKey);
+    contract.setVersion(prefix + this.default_version);
 
     Address address = new Address();
     Company company = new Company();
@@ -108,7 +108,7 @@ public class ContractResourceTest {
   @Test
   public void getAllActiveContractsTest(){
     final String prefix = "A_";
-    Contract contract = createContractDatabaseEntry(prefix);
+    createContractDatabaseEntry(prefix);
 
     given()
       .contentType("application/json")
@@ -122,7 +122,7 @@ public class ContractResourceTest {
   @Test
   public void getContractByIdTest(){
     final String prefix = "A_";
-    Contract contract = createContractDatabaseEntry(prefix);
+    createContractDatabaseEntry(prefix);
 
     given()
       .contentType("application/json")
@@ -213,7 +213,7 @@ public class ContractResourceTest {
   @Test
   public void deleteContractTest(){
     final String prefix = "A_";
-    Contract contract = createContractDatabaseEntry(prefix);
+    createContractDatabaseEntry(prefix);
 
     given()
       .contentType("application/json")

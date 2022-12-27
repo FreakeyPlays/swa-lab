@@ -163,7 +163,7 @@ public class UserResourceTest {
   @Test
   public void getUserByIdTest(){
     final String prefix = "A_";
-    User user = createUserDatabaseEntry(prefix);
+    createUserDatabaseEntry(prefix);
 
     given()
       .contentType("application/json")
@@ -256,7 +256,7 @@ public class UserResourceTest {
   @Test
   public void deleteUserTest(){
     final String prefix = "A_";
-    User user = createUserDatabaseEntry(prefix);
+    createUserDatabaseEntry(prefix);
 
     given()
       .contentType("application/json")

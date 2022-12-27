@@ -3,14 +3,12 @@ package de.hse.swa.orm.dao;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import javax.inject.Inject;
 
 import java.time.LocalDate;
 
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import de.hse.swa.orm.model.Contract;
@@ -35,7 +33,7 @@ public class ContractDaoTest {
     contract.setLicenseKey(prefix + this.default_licenseKey);
     contract.setStartDate(this.default_startDate);
     contract.setEndDate(this.default_endDate);
-    contract.setVersion(prefix + this.default_licenseKey);
+    contract.setVersion(prefix + this.default_version);
     
     return contract;
   }  

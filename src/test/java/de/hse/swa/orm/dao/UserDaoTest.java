@@ -67,7 +67,7 @@ public class UserDaoTest {
   public void getUserByIdTest(){
     final String prefix = "A_";
 
-    User user = createUserInDatabase(prefix);
+    createUserInDatabase(prefix);
 
     assertNotNull(_userDao.getUserById(this.current_id));
   }

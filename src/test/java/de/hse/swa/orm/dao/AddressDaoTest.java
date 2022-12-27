@@ -97,7 +97,6 @@ public class AddressDaoTest {
   @Test
   public void deleteAddressTest(){
     final String prefix = "A_";
-    final int expectedAddressListSize = 0;
     createAddressInDatabase(prefix);
 
     _addressDao.removeAddress(this.current_id);
