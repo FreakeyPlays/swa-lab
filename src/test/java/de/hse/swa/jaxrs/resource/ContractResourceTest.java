@@ -134,13 +134,50 @@ public class ContractResourceTest {
       .body("$", hasKey("id"));
   }
 
-  //TODO: Get Company of Contract
+  @Test
+  public void getUsersOfContractTest(){
+    final String prefix = "A_";
+    createContractDatabaseEntry(prefix);
 
-  //TODO: Get Users of Contract
+    given()
+      .contentType("application/json")
+      .pathParam("id", this.current_id)
+    .when()
+      .get("/contract/{id}/user")
+    .then()
+      .statusCode(200)
+      .body("$.size", equalTo(0));
+  }
 
-  //TODO: Get IPs of Contract
+  @Test
+  public void getIpsOfContractTest(){
+    final String prefix = "A_";
+    createContractDatabaseEntry(prefix);
 
-  //TODO: Get Features of Contract
+    given()
+      .contentType("application/json")
+      .pathParam("id", this.current_id)
+    .when()
+      .get("/contract/{id}/ips")
+    .then()
+      .statusCode(200)
+      .body("$.size", equalTo(0));
+  }
+
+  @Test
+  public void getFeaturesOfContractTest(){
+    final String prefix = "A_";
+    createContractDatabaseEntry(prefix);
+
+    given()
+      .contentType("application/json")
+      .pathParam("id", this.current_id)
+    .when()
+      .get("/contract/{id}/features")
+    .then()
+      .statusCode(200)
+      .body("$.size", equalTo(0));
+  }
 
   @Test
   public void updateContractTest(){
@@ -160,7 +197,18 @@ public class ContractResourceTest {
       .body("licenseKey", equalTo(updatedLicenseKey));
   }
 
-  //TODO: Remove all Contracts
+  @Test
+  public void deleteAllContracts(){
+    final String prefix = "A_";
+    createContractDatabaseEntry(prefix);
+
+    given()
+      .contentType("application/json")
+    .when()
+      .delete("/contract/remove/all")
+    .then()
+      .statusCode(204);
+  }
 
   @Test
   public void deleteContractTest(){
