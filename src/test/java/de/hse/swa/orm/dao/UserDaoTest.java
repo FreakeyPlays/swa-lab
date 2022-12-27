@@ -72,8 +72,6 @@ public class UserDaoTest {
     assertNotNull(_userDao.getUserById(this.current_id));
   }
 
-  //TODO: Get User by Company
-
   @Test
   public void getAllUsersTest(){
     final String[] prefixes = {"A_", "B_", "C_"};
@@ -117,7 +115,17 @@ public class UserDaoTest {
     assertNull(_userDao.getUserById(this.current_id));
   }
 
-  //TODO: Remove all Users
+  @Test
+  public void removeAllUsersTest(){
+    final String[] prefixes = {"A_", "B_", "C_"};
+
+    for(int i = 0; i < prefixes.length; i++){
+      createUserInDatabase(prefixes[i]);
+    }
+
+    _userDao.removeAllUsers();
+    assertEquals(0, _userDao.getAllUsers().size());
+  }
 
   @Test
   public void loginUserTest(){
