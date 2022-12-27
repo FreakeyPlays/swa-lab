@@ -103,9 +103,29 @@ public class CompanyResourceTest {
       .body("id", equalTo(this.current_id.intValue()));
   }
 
-  //TODO: Get Users of Company
+  @Test
+  public void getUsersOfCompanyTest(){
+    given()
+      .contentType("application/json")
+      .pathParam("id", this.current_id)
+    .when()
+      .get("/company/{id}/users")
+    .then()
+      .statusCode(200)
+      .body("$.size", equalTo(0));
+  }
 
-  //TODO: Get Contracts of Company
+  @Test
+  public void getContractsOfCompanyTest(){
+    given()
+      .contentType("application/json")
+      .pathParam("id", this.current_id)
+    .when()
+      .get("/company/{id}/contracts")
+    .then()
+      .statusCode(200)
+      .body("$.size", equalTo(0));
+  }
 
   @Test
   public void getAddressOfCompanyTest(){
@@ -140,14 +160,26 @@ public class CompanyResourceTest {
       );
   }
 
-  //TODO: Remove all Companies
+  @Test
+  public void removeAllCompaniesTest(){
+    createCompanyDatabaseEntry("B_");
+    createCompanyDatabaseEntry("C_");
+
+    given()
+      .contentType("application/json")
+    .when()
+      .delete("/company/remove/all")
+    .then()
+      .statusCode(204);
+  }
 
   @Test
   public void deleteCompanyTest(){
     given()
       .contentType("application/json")
+      .pathParam("id", this.current_id)
     .when()
-      .delete("/company/remove/all")
+      .delete("/company/remove/{id}")
     .then()
       .statusCode(204);
   }
