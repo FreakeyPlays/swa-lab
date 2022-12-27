@@ -92,5 +92,15 @@ public class FeatureDaoTest {
     assertEquals(expectedFeatureListSize, _featureDao.getAllFeatures().size());
   }
 
-  //TODO: Remove all Features
+  @Test
+  public void removeAllFeaturesTest(){
+    final int[] numbers = {113, 123, 133};
+
+    for(int i = 0; i < numbers.length; i++){
+      createFeatureInDatabase(numbers[i]);
+    }
+
+    _featureDao.removeAllFeatures();
+    assertEquals(0, _featureDao.getAllFeatures().size());
+  }
 }
