@@ -1,0 +1,1976 @@
+{
+	"info": {
+		"_postman_id": "057e8d39-e320-40b5-b438-cbc38249d3c6",
+		"name": "SWA",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25057619"
+	},
+	"item": [
+		{
+			"name": "Company",
+			"item": [
+				{
+					"name": "Create Company",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"companyName\": \"Google\",\r\n\t\"department\": \"IT\",\r\n\t\"address\": {\r\n\t\t\"country\": \"USA\",\r\n\t\t\"area\": \"New York\",\r\n\t\t\"city\": \"NYC\",\r\n\t\t\"zipCode\": \"123456\",\r\n\t\t\"streetName\": \"Mainstreet\",\r\n\t\t\"houseNumber\": 111\r\n\t}\r\n}"
+						},
+						"url": {
+							"raw": "localhost:8080/company/create",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"company",
+								"create"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "successfully / 200",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseURL1}}/company/create",
+									"host": [
+										"{{baseURL1}}"
+									],
+									"path": [
+										"company",
+										"create"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Length",
+									"value": "178"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"address\": {\n  \"area\": \"New York\",\n  \"city\": \"NYC\",\n  \"country\": \"USA\",\n  \"houseNumber\": 111,\n  \"id\": 10,\n  \"streetName\": \"Mainstreet\",\n  \"zipCode\": 123456\n },\n \"companyName\": \"Google\",\n \"department\": \"IT\",\n \"id\": 10\n}"
+						}
+					]
+				},
+				{
+					"name": "Get all Companies",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/company/all",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"company",
+								"all"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "successfully / 200",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseURL1}}/company/all",
+									"host": [
+										"{{baseURL1}}"
+									],
+									"path": [
+										"company",
+										"all"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Length",
+									"value": "4247"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "[\n {\n  \"address\": {\n   \"area\": \"Baden-Wuettemberg\",\n   \"city\": \"Esslingen\",\n   \"country\": \"Germany\",\n   \"houseNumber\": 101,\n   \"id\": 1,\n   \"streetName\": \"Flandernstrasse\",\n   \"zipCode\": 73732\n  },\n  \"companyName\": \"Hochschule Esslingen\",\n  \"contracts\": [\n   {\n    \"endDate\": \"2023-01-30\",\n    \"features\": [\n     {\n      \"id\": 1,\n      \"number\": 10\n     },\n     {\n      \"id\": 2,\n      \"number\": 20\n     }\n    ],\n    \"id\": 1,\n    \"ips\": [\n     {\n      \"address\": \"243.122.178.25\",\n      \"id\": 1\n     },\n     {\n      \"address\": \"201.102.108.205\",\n      \"id\": 2\n     }\n    ],\n    \"licenseKey\": \"ThisIsASecureLicenceKey\",\n    \"startDate\": \"2022-10-01\",\n    \"users\": [\n     {\n      \"email\": \"joergfriedrich@hs-esslingen.de\",\n      \"firstName\": \"Joerg\",\n      \"id\": 1,\n      \"isAdmin\": true,\n      \"lastName\": \"Friedrich\",\n      \"password\": \"password\",\n      \"phoneNumbers\": [\n       {\n        \"id\": 1,\n        \"number\": \"071139749\"\n       },\n       {\n        \"id\": 2,\n        \"number\": \"071112345\"\n       }\n      ],\n      \"username\": \"jofrit00\"\n     }\n    ],\n    \"version\": \"v1.0\"\n   }\n  ],\n  \"department\": \"Fakultaet-IT\",\n  \"id\": 1,\n  \"users\": [\n   {\n    \"email\": \"joergfriedrich@hs-esslingen.de\",\n    \"firstName\": \"Joerg\",\n    \"id\": 1,\n    \"isAdmin\": true,\n    \"lastName\": \"Friedrich\",\n    \"password\": \"password\",\n    \"phoneNumbers\": [\n     {\n      \"id\": 1,\n      \"number\": \"071139749\"\n     },\n     {\n      \"id\": 2,\n      \"number\": \"071112345\"\n     }\n    ],\n    \"username\": \"jofrit00\"\n   }\n  ]\n },\n {\n  \"address\": {\n   \"area\": \"Baden-Wuettemberg\",\n   \"city\": \"Esslingen\",\n   \"country\": \"Germany\",\n   \"houseNumber\": 101,\n   \"id\": 2,\n   \"streetName\": \"Flandernstrasse\",\n   \"zipCode\": 73732\n  },\n  \"companyName\": \"Hochschule Esslingen - SWB\",\n  \"contracts\": [\n   {\n    \"endDate\": \"2023-03-30\",\n    \"features\": [\n     {\n      \"id\": 3,\n      \"number\": 12\n     },\n     {\n      \"id\": 4,\n      \"number\": 22\n     }\n    ],\n    \"id\": 2,\n    \"ips\": [\n     {\n      \"address\": \"213.112.118.215\",\n      \"id\": 3\n     },\n     {\n      \"address\": \"211.112.118.215\",\n      \"id\": 4\n     }\n    ],\n    \"licenseKey\": \"ThisIsASecureLicenceKeyFromCompanySWB\",\n    \"startDate\": \"2021-01-01\",\n    \"users\": [\n     {\n      \"email\": \"chmeit02@hs-esslingen.de\",\n      \"firstName\": \"Christoph\",\n      \"id\": 2,\n      \"isAdmin\": false,\n      \"lastName\": \"Merck\",\n      \"password\": \"password\",\n      \"phoneNumbers\": [\n       {\n        \"id\": 3,\n        \"number\": \"015207417058\"\n       },\n       {\n        \"id\": 4,\n        \"number\": \"0715633841\"\n       }\n      ],\n      \"username\": \"chmeit02\"\n     },\n     {\n      \"email\": \"nimeit02@hs-esslingen.de\",\n      \"firstName\": \"Niklas\",\n      \"id\": 3,\n      \"isAdmin\": false,\n      \"lastName\": \"Meier\",\n      \"password\": \"password\",\n      \"phoneNumbers\": [\n       {\n        \"id\": 5,\n        \"number\": \"0123456789\"\n       },\n       {\n        \"id\": 6,\n        \"number\": \"01234567890\"\n       }\n      ],\n      \"username\": \"nimeit02\"\n     }\n    ],\n    \"version\": \"v1.3\"\n   },\n   {\n    \"endDate\": \"2023-03-30\",\n    \"features\": [\n     {\n      \"id\": 5,\n      \"number\": 19\n     },\n     {\n      \"id\": 6,\n      \"number\": 27\n     }\n    ],\n    \"id\": 3,\n    \"ips\": [\n     {\n      \"address\": \"233.132.138.235\",\n      \"id\": 5\n     },\n     {\n      \"address\": \"231.132.138.235\",\n      \"id\": 6\n     }\n    ],\n    \"licenseKey\": \"ThisIsASecureLicenceKeyFromCompanySWB-2\",\n    \"startDate\": \"2021-01-01\",\n    \"users\": [\n     {\n      \"email\": \"nimeit02@hs-esslingen.de\",\n      \"firstName\": \"Niklas\",\n      \"id\": 3,\n      \"isAdmin\": false,\n      \"lastName\": \"Meier\",\n      \"password\": \"password\",\n      \"phoneNumbers\": [\n       {\n        \"id\": 5,\n        \"number\": \"0123456789\"\n       },\n       {\n        \"id\": 6,\n        \"number\": \"01234567890\"\n       }\n      ],\n      \"username\": \"nimeit02\"\n     },\n     {\n      \"email\": \"glkoit00@hs-esslingen.de\",\n      \"firstName\": \"Glykeria\",\n      \"id\": 4,\n      \"isAdmin\": false,\n      \"lastName\": \"Koutsianou\",\n      \"password\": \"password\",\n      \"phoneNumbers\": [\n       {\n        \"id\": 7,\n        \"number\": \"012345678901\"\n       },\n       {\n        \"id\": 8,\n        \"number\": \"0123456789012\"\n       }\n      ],\n      \"username\": \"glkoit00\"\n     }\n    ],\n    \"version\": \"v1.9\"\n   }\n  ],\n  \"department\": \"Fakultaet-IT\",\n  \"id\": 2,\n  \"users\": [\n   {\n    \"email\": \"chmeit02@hs-esslingen.de\",\n    \"firstName\": \"Christoph\",\n    \"id\": 2,\n    \"isAdmin\": false,\n    \"lastName\": \"Merck\",\n    \"password\": \"password\",\n    \"phoneNumbers\": [\n     {\n      \"id\": 3,\n      \"number\": \"015207417058\"\n     },\n     {\n      \"id\": 4,\n      \"number\": \"0715633841\"\n     }\n    ],\n    \"username\": \"chmeit02\"\n   },\n   {\n    \"email\": \"nimeit02@hs-esslingen.de\",\n    \"firstName\": \"Niklas\",\n    \"id\": 3,\n    \"isAdmin\": false,\n    \"lastName\": \"Meier\",\n    \"password\": \"password\",\n    \"phoneNumbers\": [\n     {\n      \"id\": 5,\n      \"number\": \"0123456789\"\n     },\n     {\n      \"id\": 6,\n      \"number\": \"01234567890\"\n     }\n    ],\n    \"username\": \"nimeit02\"\n   },\n   {\n    \"email\": \"glkoit00@hs-esslingen.de\",\n    \"firstName\": \"Glykeria\",\n    \"id\": 4,\n    \"isAdmin\": false,\n    \"lastName\": \"Koutsianou\",\n    \"password\": \"password\",\n    \"phoneNumbers\": [\n     {\n      \"id\": 7,\n      \"number\": \"012345678901\"\n     },\n     {\n      \"id\": 8,\n      \"number\": \"0123456789012\"\n     }\n    ],\n    \"username\": \"glkoit00\"\n   }\n  ]\n },\n {\n  \"address\": {\n   \"area\": \"Emerald lake3\",\n   \"city\": \"test4\",\n   \"country\": \"Canada2\",\n   \"houseNumber\": 112,\n   \"id\": 10,\n   \"streetName\": \"Street6\",\n   \"zipCode\": 346345\n  },\n  \"companyName\": \"Google\",\n  \"contracts\": [\n   {\n    \"endDate\": \"2022-12-24\",\n    \"features\": [\n     {\n      \"id\": 10,\n      \"number\": 10\n     },\n     {\n      \"id\": 11,\n      \"number\": 20\n     }\n    ],\n    \"id\": 10,\n    \"ips\": [\n     {\n      \"address\": \"255.255.255.255\",\n      \"id\": 10\n     },\n     {\n      \"address\": \"0.0.0.255\",\n      \"id\": 11\n     }\n    ],\n    \"licenseKey\": \"test\",\n    \"startDate\": \"2022-12-12\",\n    \"users\": [\n     {\n      \"email\": \"chris2@gmx.de\",\n      \"firstName\": \"Chris22\",\n      \"id\": 10,\n      \"isAdmin\": true,\n      \"lastName\": \"Merck2\",\n      \"password\": \"password\",\n      \"phoneNumbers\": [\n       {\n        \"id\": 10,\n        \"number\": \"012631823\"\n       },\n       {\n        \"id\": 11,\n        \"number\": \"tasdasdad\"\n       }\n      ],\n      \"username\": \"freake2y\"\n     }\n    ],\n    \"version\": \"v1.0\"\n   }\n  ],\n  \"department\": \"IT\",\n  \"id\": 10,\n  \"users\": [\n   {\n    \"email\": \"chris2@gmx.de\",\n    \"firstName\": \"Chris22\",\n    \"id\": 10,\n    \"isAdmin\": true,\n    \"lastName\": \"Merck2\",\n    \"password\": \"password\",\n    \"phoneNumbers\": [\n     {\n      \"id\": 10,\n      \"number\": \"012631823\"\n     },\n     {\n      \"id\": 11,\n      \"number\": \"tasdasdad\"\n     }\n    ],\n    \"username\": \"freake2y\"\n   }\n  ]\n }\n]"
+						}
+					]
+				},
+				{
+					"name": "Get Company by Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/company/:id",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"company",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "successfully / 200",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseURL1}}/company/10",
+									"host": [
+										"{{baseURL1}}"
+									],
+									"path": [
+										"company",
+										"10"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Length",
+									"value": "961"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"address\": {\n  \"area\": \"Emerald lake3\",\n  \"city\": \"test4\",\n  \"country\": \"Canada2\",\n  \"houseNumber\": 112,\n  \"id\": 10,\n  \"streetName\": \"Street6\",\n  \"zipCode\": 346345\n },\n \"companyName\": \"Google\",\n \"contracts\": [\n  {\n   \"endDate\": \"2022-12-24\",\n   \"features\": [\n    {\n     \"id\": 10,\n     \"number\": 10\n    },\n    {\n     \"id\": 11,\n     \"number\": 20\n    }\n   ],\n   \"id\": 10,\n   \"ips\": [\n    {\n     \"address\": \"255.255.255.255\",\n     \"id\": 10\n    },\n    {\n     \"address\": \"0.0.0.255\",\n     \"id\": 11\n    },\n    {\n     \"address\": \"255.255.255.255\",\n     \"id\": 12\n    },\n    {\n     \"address\": \"0.0.0.255\",\n     \"id\": 13\n    }\n   ],\n   \"licenseKey\": \"22222222222222222\",\n   \"startDate\": \"2022-12-12\",\n   \"users\": [\n    {\n     \"email\": \"chris2@gmx.de\",\n     \"firstName\": \"Chris22\",\n     \"id\": 10,\n     \"isAdmin\": true,\n     \"lastName\": \"Merck2\",\n     \"password\": \"password\",\n     \"phoneNumbers\": [\n      {\n       \"id\": 10,\n       \"number\": \"012631823\"\n      },\n      {\n       \"id\": 11,\n       \"number\": \"tasdasdad\"\n      }\n     ],\n     \"username\": \"freake2y\"\n    }\n   ],\n   \"version\": \"v1.0\"\n  }\n ],\n \"department\": \"IT\",\n \"id\": 10,\n \"users\": [\n  {\n   \"email\": \"chris2@gmx.de\",\n   \"firstName\": \"Chris22\",\n   \"id\": 10,\n   \"isAdmin\": true,\n   \"lastName\": \"Merck2\",\n   \"password\": \"password\",\n   \"phoneNumbers\": [\n    {\n     \"id\": 10,\n     \"number\": \"012631823\"\n    },\n    {\n     \"id\": 11,\n     \"number\": \"tasdasdad\"\n    }\n   ],\n   \"username\": \"freake2y\"\n  }\n ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Get Company by Name",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/company/name/:companyName",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"company",
+								"name",
+								":companyName"
+							],
+							"variable": [
+								{
+									"key": "companyName",
+									"value": "Google"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "successfully / 200",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseURL1}}/company/name/Google",
+									"host": [
+										"{{baseURL1}}"
+									],
+									"path": [
+										"company",
+										"name",
+										"Google"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Length",
+									"value": "878"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"address\": {\n  \"area\": \"Emerald lake3\",\n  \"city\": \"test4\",\n  \"country\": \"Canada2\",\n  \"houseNumber\": 112,\n  \"id\": 10,\n  \"streetName\": \"Street6\",\n  \"zipCode\": 346345\n },\n \"companyName\": \"Google\",\n \"contracts\": [\n  {\n   \"endDate\": \"2022-12-24\",\n   \"features\": [\n    {\n     \"id\": 10,\n     \"number\": 10\n    },\n    {\n     \"id\": 11,\n     \"number\": 20\n    }\n   ],\n   \"id\": 10,\n   \"ips\": [\n    {\n     \"address\": \"255.255.255.255\",\n     \"id\": 10\n    },\n    {\n     \"address\": \"0.0.0.255\",\n     \"id\": 11\n    }\n   ],\n   \"licenseKey\": \"test\",\n   \"startDate\": \"2022-12-12\",\n   \"users\": [\n    {\n     \"email\": \"chris2@gmx.de\",\n     \"firstName\": \"Chris22\",\n     \"id\": 10,\n     \"isAdmin\": true,\n     \"lastName\": \"Merck2\",\n     \"password\": \"password\",\n     \"phoneNumbers\": [\n      {\n       \"id\": 10,\n       \"number\": \"012631823\"\n      },\n      {\n       \"id\": 11,\n       \"number\": \"tasdasdad\"\n      }\n     ],\n     \"username\": \"freake2y\"\n    }\n   ],\n   \"version\": \"v1.0\"\n  }\n ],\n \"department\": \"IT\",\n \"id\": 10,\n \"users\": [\n  {\n   \"email\": \"chris2@gmx.de\",\n   \"firstName\": \"Chris22\",\n   \"id\": 10,\n   \"isAdmin\": true,\n   \"lastName\": \"Merck2\",\n   \"password\": \"password\",\n   \"phoneNumbers\": [\n    {\n     \"id\": 10,\n     \"number\": \"012631823\"\n    },\n    {\n     \"id\": 11,\n     \"number\": \"tasdasdad\"\n    }\n   ],\n   \"username\": \"freake2y\"\n  }\n ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Get Users of Company",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/company/:id/users",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"company",
+								":id",
+								"users"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "successfully / 200",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseURL1}}/company/10/users",
+									"host": [
+										"{{baseURL1}}"
+									],
+									"path": [
+										"company",
+										"10",
+										"users"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Length",
+									"value": "215"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "[\n {\n  \"email\": \"chris2@gmx.de\",\n  \"firstName\": \"Chris22\",\n  \"id\": 10,\n  \"isAdmin\": true,\n  \"lastName\": \"Merck2\",\n  \"password\": \"password\",\n  \"phoneNumbers\": [\n   {\n    \"id\": 10,\n    \"number\": \"012631823\"\n   },\n   {\n    \"id\": 11,\n    \"number\": \"tasdasdad\"\n   }\n  ],\n  \"username\": \"freake2y\"\n }\n]"
+						}
+					]
+				},
+				{
+					"name": "Get Contracts of Company",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/company/:id/contracts",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"company",
+								":id",
+								"contracts"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "successfully / 200",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseURL1}}/company/10/contracts",
+									"host": [
+										"{{baseURL1}}"
+									],
+									"path": [
+										"company",
+										"10",
+										"contracts"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Length",
+									"value": "455"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "[\n {\n  \"endDate\": \"2022-12-24\",\n  \"features\": [\n   {\n    \"id\": 10,\n    \"number\": 10\n   },\n   {\n    \"id\": 11,\n    \"number\": 20\n   }\n  ],\n  \"id\": 10,\n  \"ips\": [\n   {\n    \"address\": \"255.255.255.255\",\n    \"id\": 10\n   },\n   {\n    \"address\": \"0.0.0.255\",\n    \"id\": 11\n   }\n  ],\n  \"licenseKey\": \"test\",\n  \"startDate\": \"2022-12-12\",\n  \"users\": [\n   {\n    \"email\": \"chris2@gmx.de\",\n    \"firstName\": \"Chris22\",\n    \"id\": 10,\n    \"isAdmin\": true,\n    \"lastName\": \"Merck2\",\n    \"password\": \"password\",\n    \"phoneNumbers\": [\n     {\n      \"id\": 10,\n      \"number\": \"012631823\"\n     },\n     {\n      \"id\": 11,\n      \"number\": \"tasdasdad\"\n     }\n    ],\n    \"username\": \"freake2y\"\n   }\n  ],\n  \"version\": \"v1.0\"\n }\n]"
+						}
+					]
+				},
+				{
+					"name": "Get Address of Company",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/company/:id/address",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"company",
+								":id",
+								"address"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "successfully / 200",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseURL1}}/company/10/address",
+									"host": [
+										"{{baseURL1}}"
+									],
+									"path": [
+										"company",
+										"10",
+										"address"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Length",
+									"value": "125"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"area\": \"Emerald lake3\",\n \"city\": \"test4\",\n \"country\": \"Canada2\",\n \"houseNumber\": 112,\n \"id\": 10,\n \"streetName\": \"Street6\",\n \"zipCode\": 346345\n}"
+						}
+					]
+				},
+				{
+					"name": "Update Company",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"address\": {\r\n\t\t\"area\": \"New York OR Ohio\",\r\n\t\t\"city\": \"NYC\",\r\n\t\t\"country\": \"USA\",\r\n\t\t\"houseNumber\": 111,\r\n\t\t\"id\": 10,\r\n\t\t\"streetName\": \"Mainstreet\",\r\n\t\t\"zipCode\": 123456\r\n\t},\r\n\t\"companyName\": \"Google - Updated\",\r\n\t\"department\": \"IT\",\r\n\t\"id\": 10\r\n}"
+						},
+						"url": {
+							"raw": "localhost:8080/company/update",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"company",
+								"update"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "successfully / 200",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseURL1}}/company/update",
+									"host": [
+										"{{baseURL1}}"
+									],
+									"path": [
+										"company",
+										"update"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Length",
+									"value": "196"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"address\": {\n  \"area\": \"New York OR Ohio\",\n  \"city\": \"NYC\",\n  \"country\": \"USA\",\n  \"houseNumber\": 111,\n  \"id\": 10,\n  \"streetName\": \"Mainstreet\",\n  \"zipCode\": 123456\n },\n \"companyName\": \"Google - Updated\",\n \"department\": \"IT\",\n \"id\": 10\n}"
+						}
+					]
+				},
+				{
+					"name": "Remopve Company by Id",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "localhost:8080/company/remove/:id",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"company",
+								"remove",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "no-content / 204",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseURL1}}/company/remove/10",
+									"host": [
+										"{{baseURL1}}"
+									],
+									"path": [
+										"company",
+										"remove",
+										"10"
+									]
+								}
+							},
+							"status": "No Content",
+							"code": 204,
+							"_postman_previewlanguage": "Text",
+							"header": [],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				},
+				{
+					"name": "Remove all Companies",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "localhost:8080/company/remove/all",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"company",
+								"remove",
+								"all"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "no-content / 204",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseURL1}}/company/remove/all",
+									"host": [
+										"{{baseURL1}}"
+									],
+									"path": [
+										"company",
+										"remove",
+										"all"
+									]
+								}
+							},
+							"status": "No Content",
+							"code": 204,
+							"_postman_previewlanguage": "Text",
+							"header": [],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Create User",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"lastName\": \"Mustermann\",\r\n\t\"firstName\": \"Max\",\r\n\t\"username\": \"Muster\",\r\n\t\"email\": \"max@muster.de\",\r\n\t\"phoneNumbers\": [\r\n\t\t{\r\n\t\t\t\"number\": \"0123456789\"\r\n\t\t},{\r\n\t\t\t\"number\": \"01234567890\"\r\n\t\t}\r\n\t],\r\n\t\"isAdmin\": true,\r\n\t\"password\": \"password\",\r\n\t\"companyId\": {\r\n\t\t\"id\": 10\r\n\t}\r\n}"
+						},
+						"url": {
+							"raw": "localhost:8080/user/create",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"user",
+								"create"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "successfully / 200",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseURL1}}/user/create",
+									"host": [
+										"{{baseURL1}}"
+									],
+									"path": [
+										"user",
+										"create"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Length",
+									"value": "214"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"email\": \"max@muster.de\",\n \"firstName\": \"Max\",\n \"id\": 10,\n \"isAdmin\": true,\n \"lastName\": \"Mustermann\",\n \"password\": \"password\",\n \"phoneNumbers\": [\n  {\n   \"id\": 10,\n   \"number\": \"0123456789\"\n  },\n  {\n   \"id\": 11,\n   \"number\": \"01234567890\"\n  }\n ],\n \"username\": \"Muster\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Login User",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/user/login?username=Muster&password=password",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"user",
+								"login"
+							],
+							"query": [
+								{
+									"key": "username",
+									"value": "Muster"
+								},
+								{
+									"key": "password",
+									"value": "password"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "successfully / 200",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{baseURL1}}/user/login?username=Muster&password=password",
+									"host": [
+										"{{baseURL1}}"
+									],
+									"path": [
+										"user",
+										"login"
+									],
+									"query": [
+										{
+											"key": "username",
+											"value": "Muster"
+										},
+										{
+											"key": "password",
+											"value": "password"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Length",
+									"value": "4"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "true"
+						}
+					]
+				},
+				{
+					"name": "Get all Users",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/user/all",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"user",
+								"all"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "successfully / 200",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseURL1}}/user/all",
+									"host": [
+										"{{baseURL1}}"
+									],
+									"path": [
+										"user",
+										"all"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Length",
+									"value": "1131"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "[\n {\n  \"email\": \"joergfriedrich@hs-esslingen.de\",\n  \"firstName\": \"Joerg\",\n  \"id\": 1,\n  \"isAdmin\": true,\n  \"lastName\": \"Friedrich\",\n  \"password\": \"password\",\n  \"phoneNumbers\": [\n   {\n    \"id\": 1,\n    \"number\": \"071139749\"\n   },\n   {\n    \"id\": 2,\n    \"number\": \"071112345\"\n   }\n  ],\n  \"username\": \"jofrit00\"\n },\n {\n  \"email\": \"chmeit02@hs-esslingen.de\",\n  \"firstName\": \"Christoph\",\n  \"id\": 2,\n  \"isAdmin\": false,\n  \"lastName\": \"Merck\",\n  \"password\": \"password\",\n  \"phoneNumbers\": [\n   {\n    \"id\": 3,\n    \"number\": \"015207417058\"\n   },\n   {\n    \"id\": 4,\n    \"number\": \"0715633841\"\n   }\n  ],\n  \"username\": \"chmeit02\"\n },\n {\n  \"email\": \"nimeit02@hs-esslingen.de\",\n  \"firstName\": \"Niklas\",\n  \"id\": 3,\n  \"isAdmin\": false,\n  \"lastName\": \"Meier\",\n  \"password\": \"password\",\n  \"phoneNumbers\": [\n   {\n    \"id\": 5,\n    \"number\": \"0123456789\"\n   },\n   {\n    \"id\": 6,\n    \"number\": \"01234567890\"\n   }\n  ],\n  \"username\": \"nimeit02\"\n },\n {\n  \"email\": \"glkoit00@hs-esslingen.de\",\n  \"firstName\": \"Glykeria\",\n  \"id\": 4,\n  \"isAdmin\": false,\n  \"lastName\": \"Koutsianou\",\n  \"password\": \"password\",\n  \"phoneNumbers\": [\n   {\n    \"id\": 7,\n    \"number\": \"012345678901\"\n   },\n   {\n    \"id\": 8,\n    \"number\": \"0123456789012\"\n   }\n  ],\n  \"username\": \"glkoit00\"\n },\n {\n  \"email\": \"chris2@gmx.de\",\n  \"firstName\": \"Chris22\",\n  \"id\": 10,\n  \"isAdmin\": true,\n  \"lastName\": \"Merck2\",\n  \"password\": \"password\",\n  \"phoneNumbers\": [\n   {\n    \"id\": 10,\n    \"number\": \"012631823\"\n   },\n   {\n    \"id\": 11,\n    \"number\": \"tasdasdad\"\n   }\n  ],\n  \"username\": \"freake2y\"\n }\n]"
+						}
+					]
+				},
+				{
+					"name": "Get all Users of Company",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/user/all/company/:companyId",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"user",
+								"all",
+								"company",
+								":companyId"
+							],
+							"variable": [
+								{
+									"key": "companyId",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "successfully / 200",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseURL1}}/user/all/company/10",
+									"host": [
+										"{{baseURL1}}"
+									],
+									"path": [
+										"user",
+										"all",
+										"company",
+										"10"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Length",
+									"value": "215"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "[\n {\n  \"email\": \"chris2@gmx.de\",\n  \"firstName\": \"Chris22\",\n  \"id\": 10,\n  \"isAdmin\": true,\n  \"lastName\": \"Merck2\",\n  \"password\": \"password\",\n  \"phoneNumbers\": [\n   {\n    \"id\": 10,\n    \"number\": \"012631823\"\n   },\n   {\n    \"id\": 11,\n    \"number\": \"tasdasdad\"\n   }\n  ],\n  \"username\": \"freake2y\"\n }\n]"
+						}
+					]
+				},
+				{
+					"name": "Get User by Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/user/:id",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"user",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "successfully / 200",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseURL1}}/user/10",
+									"host": [
+										"{{baseURL1}}"
+									],
+									"path": [
+										"user",
+										"10"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Length",
+									"value": "213"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"email\": \"chris2@gmx.de\",\n \"firstName\": \"Chris22\",\n \"id\": 10,\n \"isAdmin\": true,\n \"lastName\": \"Merck2\",\n \"password\": \"password\",\n \"phoneNumbers\": [\n  {\n   \"id\": 10,\n   \"number\": \"012631823\"\n  },\n  {\n   \"id\": 11,\n   \"number\": \"tasdasdad\"\n  }\n ],\n \"username\": \"freake2y\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Get User by Username",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/user/username/:username",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"user",
+								"username",
+								":username"
+							],
+							"variable": [
+								{
+									"key": "username",
+									"value": "Muster"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "successfully / 200",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseURL1}}/user/username/freake2y",
+									"host": [
+										"{{baseURL1}}"
+									],
+									"path": [
+										"user",
+										"username",
+										"freake2y"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Length",
+									"value": "213"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"email\": \"chris2@gmx.de\",\n \"firstName\": \"Chris22\",\n \"id\": 10,\n \"isAdmin\": true,\n \"lastName\": \"Merck2\",\n \"password\": \"password\",\n \"phoneNumbers\": [\n  {\n   \"id\": 10,\n   \"number\": \"012631823\"\n  },\n  {\n   \"id\": 11,\n   \"number\": \"tasdasdad\"\n  }\n ],\n \"username\": \"freake2y\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Get Company of User",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/user/:id/company",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"user",
+								":id",
+								"company"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "successfully / 200",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseURL1}}/user/10/company",
+									"host": [
+										"{{baseURL1}}"
+									],
+									"path": [
+										"user",
+										"10",
+										"company"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Length",
+									"value": "878"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"address\": {\n  \"area\": \"Emerald lake3\",\n  \"city\": \"test4\",\n  \"country\": \"Canada2\",\n  \"houseNumber\": 112,\n  \"id\": 10,\n  \"streetName\": \"Street6\",\n  \"zipCode\": 346345\n },\n \"companyName\": \"Google\",\n \"contracts\": [\n  {\n   \"endDate\": \"2022-12-24\",\n   \"features\": [\n    {\n     \"id\": 10,\n     \"number\": 10\n    },\n    {\n     \"id\": 11,\n     \"number\": 20\n    }\n   ],\n   \"id\": 10,\n   \"ips\": [\n    {\n     \"address\": \"255.255.255.255\",\n     \"id\": 10\n    },\n    {\n     \"address\": \"0.0.0.255\",\n     \"id\": 11\n    }\n   ],\n   \"licenseKey\": \"test\",\n   \"startDate\": \"2022-12-12\",\n   \"users\": [\n    {\n     \"email\": \"chris2@gmx.de\",\n     \"firstName\": \"Chris22\",\n     \"id\": 10,\n     \"isAdmin\": true,\n     \"lastName\": \"Merck2\",\n     \"password\": \"password\",\n     \"phoneNumbers\": [\n      {\n       \"id\": 10,\n       \"number\": \"012631823\"\n      },\n      {\n       \"id\": 11,\n       \"number\": \"tasdasdad\"\n      }\n     ],\n     \"username\": \"freake2y\"\n    }\n   ],\n   \"version\": \"v1.0\"\n  }\n ],\n \"department\": \"IT\",\n \"id\": 10,\n \"users\": [\n  {\n   \"email\": \"chris2@gmx.de\",\n   \"firstName\": \"Chris22\",\n   \"id\": 10,\n   \"isAdmin\": true,\n   \"lastName\": \"Merck2\",\n   \"password\": \"password\",\n   \"phoneNumbers\": [\n    {\n     \"id\": 10,\n     \"number\": \"012631823\"\n    },\n    {\n     \"id\": 11,\n     \"number\": \"tasdasdad\"\n    }\n   ],\n   \"username\": \"freake2y\"\n  }\n ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Get Contracts of User",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/user/:id/contracts",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"user",
+								":id",
+								"contracts"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "successfully / 200",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseURL1}}/user/10/contracts",
+									"host": [
+										"{{baseURL1}}"
+									],
+									"path": [
+										"user",
+										"10",
+										"contracts"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Length",
+									"value": "455"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "[\n {\n  \"endDate\": \"2022-12-24\",\n  \"features\": [\n   {\n    \"id\": 10,\n    \"number\": 10\n   },\n   {\n    \"id\": 11,\n    \"number\": 20\n   }\n  ],\n  \"id\": 10,\n  \"ips\": [\n   {\n    \"address\": \"255.255.255.255\",\n    \"id\": 10\n   },\n   {\n    \"address\": \"0.0.0.255\",\n    \"id\": 11\n   }\n  ],\n  \"licenseKey\": \"test\",\n  \"startDate\": \"2022-12-12\",\n  \"users\": [\n   {\n    \"email\": \"chris2@gmx.de\",\n    \"firstName\": \"Chris22\",\n    \"id\": 10,\n    \"isAdmin\": true,\n    \"lastName\": \"Merck2\",\n    \"password\": \"password\",\n    \"phoneNumbers\": [\n     {\n      \"id\": 10,\n      \"number\": \"012631823\"\n     },\n     {\n      \"id\": 11,\n      \"number\": \"tasdasdad\"\n     }\n    ],\n    \"username\": \"freake2y\"\n   }\n  ],\n  \"version\": \"v1.0\"\n }\n]"
+						}
+					]
+				},
+				{
+					"name": "Get PhoneNumbers of User",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/user/:id/phone",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"user",
+								":id",
+								"phone"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "successfully / 200",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseURL1}}/user/10/phone",
+									"host": [
+										"{{baseURL1}}"
+									],
+									"path": [
+										"user",
+										"10",
+										"phone"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Length",
+									"value": "63"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "[\n {\n  \"id\": 10,\n  \"number\": \"012631823\"\n },\n {\n  \"id\": 11,\n  \"number\": \"tasdasdad\"\n }\n]"
+						}
+					]
+				},
+				{
+					"name": "Update User",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"email\": \"max@muster.de\",\r\n\t\"firstName\": \"Max\",\r\n\t\"id\": 10,\r\n\t\"isAdmin\": true,\r\n\t\"lastName\": \"Mustermann - Updated\",\r\n\t\"password\": \"password\",\r\n\t\"phoneNumbers\": [\r\n\t\t{\r\n\t\t\t\"id\": 10,\r\n\t\t\t\"number\": \"0123456789 - Updated\"\r\n\t\t},\r\n\t\t{\r\n\t\t\t\"id\": 11,\r\n\t\t\t\"number\": \"01234567890\"\r\n\t\t}\r\n\t],\r\n\t\"username\": \"Muster\"\r\n}"
+						},
+						"url": {
+							"raw": "localhost:8080/user/update",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"user",
+								"update"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "successfully / 200",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseURL1}}/user/update",
+									"host": [
+										"{{baseURL1}}"
+									],
+									"path": [
+										"user",
+										"update"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Length",
+									"value": "234"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"email\": \"max@muster.de\",\n \"firstName\": \"Max\",\n \"id\": 10,\n \"isAdmin\": true,\n \"lastName\": \"Mustermann - Updated\",\n \"password\": \"password\",\n \"phoneNumbers\": [\n  {\n   \"id\": 10,\n   \"number\": \"0123456789 - Updated\"\n  },\n  {\n   \"id\": 11,\n   \"number\": \"01234567890\"\n  }\n ],\n \"username\": \"Muster\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Remove User by Id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/user/remove/:id",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"user",
+								"remove",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": " / 500",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{baseURL1}}/user/remove/10",
+									"host": [
+										"{{baseURL1}}"
+									],
+									"path": [
+										"user",
+										"remove",
+										"10"
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "content-type",
+									"value": "text/html; charset=utf-8"
+								},
+								{
+									"key": "content-length",
+									"value": "25213"
+								}
+							],
+							"cookie": [],
+							"body": "text/html; charset=utf-8 content type is not supported in the response body"
+						}
+					]
+				},
+				{
+					"name": "Remove all Users",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/user/remove/all",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"user",
+								"remove",
+								"all"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "no-content / 204",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{baseURL1}}/user/remove/all",
+									"host": [
+										"{{baseURL1}}"
+									],
+									"path": [
+										"user",
+										"remove",
+										"all"
+									]
+								}
+							},
+							"status": "No Content",
+							"code": 204,
+							"_postman_previewlanguage": "Text",
+							"header": [],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Contract",
+			"item": [
+				{
+					"name": "Create Contract",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"licenseKey\": \"abcdefghijklmnopqrstuvwxyz\",\r\n\t\"startDate\": \"2022-12-12\",\r\n\t\"endDate\": \"2022-12-24\",\r\n\t\"version\": \"v1.0\",\r\n\t\"ips\": [\r\n\t\t{\r\n\t\t\t\"address\": \"255.255.255.255\"\r\n\t\t},\r\n\t\t{\r\n\t\t\t\"address\": \"0.0.0.255\"\r\n\t\t}\r\n\t],\r\n\t\"users\": [\r\n\t\t{\r\n\t\t\t\"id\": 10\r\n\t\t}\r\n\t],\r\n\t\"features\": [\r\n\t\t{\r\n\t\t\t\"number\": 10\r\n\t\t},\r\n\t\t{\r\n\t\t\t\"number\": 20\r\n\t\t}\r\n\t],\r\n\t\"companyId\": {\r\n\t\t\"id\": 10\r\n\t}\r\n}"
+						},
+						"url": {
+							"raw": "localhost:8080/contract/create",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"contract",
+								"create"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "successfully / 200",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseURL1}}/contract/create",
+									"host": [
+										"{{baseURL1}}"
+									],
+									"path": [
+										"contract",
+										"create"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Length",
+									"value": "496"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"endDate\": \"2022-12-24\",\n \"features\": [\n  {\n   \"id\": 10,\n   \"number\": 10\n  },\n  {\n   \"id\": 11,\n   \"number\": 20\n  }\n ],\n \"id\": 10,\n \"ips\": [\n  {\n   \"address\": \"255.255.255.255\",\n   \"id\": 10\n  },\n  {\n   \"address\": \"0.0.0.255\",\n   \"id\": 11\n  }\n ],\n \"licenseKey\": \"abcdefghijklmnopqrstuvwxyz\",\n \"startDate\": \"2022-12-12\",\n \"users\": [\n  {\n   \"email\": \"max@muster.de\",\n   \"firstName\": \"Max\",\n   \"id\": 10,\n   \"isAdmin\": true,\n   \"lastName\": \"Mustermann - Updated\",\n   \"password\": \"password\",\n   \"phoneNumbers\": [\n    {\n     \"id\": 10,\n     \"number\": \"0123456789 - Updated\"\n    },\n    {\n     \"id\": 11,\n     \"number\": \"01234567890\"\n    }\n   ],\n   \"username\": \"Muster\"\n  }\n ],\n \"version\": \"v1.0\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Get all Contracts",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/contract/all",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"contract",
+								"all"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "successfully / 200",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseURL1}}/contract/all",
+									"host": [
+										"{{baseURL1}}"
+									],
+									"path": [
+										"contract",
+										"all"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Length",
+									"value": "2404"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "[\n {\n  \"endDate\": \"2023-01-30\",\n  \"features\": [\n   {\n    \"id\": 1,\n    \"number\": 10\n   },\n   {\n    \"id\": 2,\n    \"number\": 20\n   }\n  ],\n  \"id\": 1,\n  \"ips\": [\n   {\n    \"address\": \"243.122.178.25\",\n    \"id\": 1\n   },\n   {\n    \"address\": \"201.102.108.205\",\n    \"id\": 2\n   }\n  ],\n  \"licenseKey\": \"ThisIsASecureLicenceKey\",\n  \"startDate\": \"2022-10-01\",\n  \"users\": [\n   {\n    \"email\": \"joergfriedrich@hs-esslingen.de\",\n    \"firstName\": \"Joerg\",\n    \"id\": 1,\n    \"isAdmin\": true,\n    \"lastName\": \"Friedrich\",\n    \"password\": \"password\",\n    \"phoneNumbers\": [\n     {\n      \"id\": 1,\n      \"number\": \"071139749\"\n     },\n     {\n      \"id\": 2,\n      \"number\": \"071112345\"\n     }\n    ],\n    \"username\": \"jofrit00\"\n   }\n  ],\n  \"version\": \"v1.0\"\n },\n {\n  \"endDate\": \"2023-03-30\",\n  \"features\": [\n   {\n    \"id\": 3,\n    \"number\": 12\n   },\n   {\n    \"id\": 4,\n    \"number\": 22\n   }\n  ],\n  \"id\": 2,\n  \"ips\": [\n   {\n    \"address\": \"213.112.118.215\",\n    \"id\": 3\n   },\n   {\n    \"address\": \"211.112.118.215\",\n    \"id\": 4\n   }\n  ],\n  \"licenseKey\": \"ThisIsASecureLicenceKeyFromCompanySWB\",\n  \"startDate\": \"2021-01-01\",\n  \"users\": [\n   {\n    \"email\": \"chmeit02@hs-esslingen.de\",\n    \"firstName\": \"Christoph\",\n    \"id\": 2,\n    \"isAdmin\": false,\n    \"lastName\": \"Merck\",\n    \"password\": \"password\",\n    \"phoneNumbers\": [\n     {\n      \"id\": 3,\n      \"number\": \"015207417058\"\n     },\n     {\n      \"id\": 4,\n      \"number\": \"0715633841\"\n     }\n    ],\n    \"username\": \"chmeit02\"\n   },\n   {\n    \"email\": \"nimeit02@hs-esslingen.de\",\n    \"firstName\": \"Niklas\",\n    \"id\": 3,\n    \"isAdmin\": false,\n    \"lastName\": \"Meier\",\n    \"password\": \"password\",\n    \"phoneNumbers\": [\n     {\n      \"id\": 5,\n      \"number\": \"0123456789\"\n     },\n     {\n      \"id\": 6,\n      \"number\": \"01234567890\"\n     }\n    ],\n    \"username\": \"nimeit02\"\n   }\n  ],\n  \"version\": \"v1.3\"\n },\n {\n  \"endDate\": \"2023-03-30\",\n  \"features\": [\n   {\n    \"id\": 5,\n    \"number\": 19\n   },\n   {\n    \"id\": 6,\n    \"number\": 27\n   }\n  ],\n  \"id\": 3,\n  \"ips\": [\n   {\n    \"address\": \"233.132.138.235\",\n    \"id\": 5\n   },\n   {\n    \"address\": \"231.132.138.235\",\n    \"id\": 6\n   }\n  ],\n  \"licenseKey\": \"ThisIsASecureLicenceKeyFromCompanySWB-2\",\n  \"startDate\": \"2021-01-01\",\n  \"users\": [\n   {\n    \"email\": \"nimeit02@hs-esslingen.de\",\n    \"firstName\": \"Niklas\",\n    \"id\": 3,\n    \"isAdmin\": false,\n    \"lastName\": \"Meier\",\n    \"password\": \"password\",\n    \"phoneNumbers\": [\n     {\n      \"id\": 5,\n      \"number\": \"0123456789\"\n     },\n     {\n      \"id\": 6,\n      \"number\": \"01234567890\"\n     }\n    ],\n    \"username\": \"nimeit02\"\n   },\n   {\n    \"email\": \"glkoit00@hs-esslingen.de\",\n    \"firstName\": \"Glykeria\",\n    \"id\": 4,\n    \"isAdmin\": false,\n    \"lastName\": \"Koutsianou\",\n    \"password\": \"password\",\n    \"phoneNumbers\": [\n     {\n      \"id\": 7,\n      \"number\": \"012345678901\"\n     },\n     {\n      \"id\": 8,\n      \"number\": \"0123456789012\"\n     }\n    ],\n    \"username\": \"glkoit00\"\n   }\n  ],\n  \"version\": \"v1.9\"\n },\n {\n  \"endDate\": \"2022-12-24\",\n  \"features\": [\n   {\n    \"id\": 10,\n    \"number\": 10\n   },\n   {\n    \"id\": 11,\n    \"number\": 20\n   }\n  ],\n  \"id\": 10,\n  \"ips\": [\n   {\n    \"address\": \"255.255.255.255\",\n    \"id\": 10\n   },\n   {\n    \"address\": \"0.0.0.255\",\n    \"id\": 11\n   }\n  ],\n  \"licenseKey\": \"test\",\n  \"startDate\": \"2022-12-12\",\n  \"users\": [\n   {\n    \"email\": \"chris2@gmx.de\",\n    \"firstName\": \"Chris22\",\n    \"id\": 10,\n    \"isAdmin\": true,\n    \"lastName\": \"Merck2\",\n    \"password\": \"password\",\n    \"phoneNumbers\": [\n     {\n      \"id\": 10,\n      \"number\": \"012631823\"\n     },\n     {\n      \"id\": 11,\n      \"number\": \"tasdasdad\"\n     }\n    ],\n    \"username\": \"freake2y\"\n   }\n  ],\n  \"version\": \"v1.0\"\n }\n]"
+						}
+					]
+				},
+				{
+					"name": "Get all active Contracts",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/contract/all/active",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"contract",
+								"all",
+								"active"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "successfully / 200",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseURL1}}/contract/all/active",
+									"host": [
+										"{{baseURL1}}"
+									],
+									"path": [
+										"contract",
+										"all",
+										"active"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Length",
+									"value": "2404"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "[\n {\n  \"endDate\": \"2023-01-30\",\n  \"features\": [\n   {\n    \"id\": 1,\n    \"number\": 10\n   },\n   {\n    \"id\": 2,\n    \"number\": 20\n   }\n  ],\n  \"id\": 1,\n  \"ips\": [\n   {\n    \"address\": \"243.122.178.25\",\n    \"id\": 1\n   },\n   {\n    \"address\": \"201.102.108.205\",\n    \"id\": 2\n   }\n  ],\n  \"licenseKey\": \"ThisIsASecureLicenceKey\",\n  \"startDate\": \"2022-10-01\",\n  \"users\": [\n   {\n    \"email\": \"joergfriedrich@hs-esslingen.de\",\n    \"firstName\": \"Joerg\",\n    \"id\": 1,\n    \"isAdmin\": true,\n    \"lastName\": \"Friedrich\",\n    \"password\": \"password\",\n    \"phoneNumbers\": [\n     {\n      \"id\": 1,\n      \"number\": \"071139749\"\n     },\n     {\n      \"id\": 2,\n      \"number\": \"071112345\"\n     }\n    ],\n    \"username\": \"jofrit00\"\n   }\n  ],\n  \"version\": \"v1.0\"\n },\n {\n  \"endDate\": \"2023-03-30\",\n  \"features\": [\n   {\n    \"id\": 3,\n    \"number\": 12\n   },\n   {\n    \"id\": 4,\n    \"number\": 22\n   }\n  ],\n  \"id\": 2,\n  \"ips\": [\n   {\n    \"address\": \"213.112.118.215\",\n    \"id\": 3\n   },\n   {\n    \"address\": \"211.112.118.215\",\n    \"id\": 4\n   }\n  ],\n  \"licenseKey\": \"ThisIsASecureLicenceKeyFromCompanySWB\",\n  \"startDate\": \"2021-01-01\",\n  \"users\": [\n   {\n    \"email\": \"chmeit02@hs-esslingen.de\",\n    \"firstName\": \"Christoph\",\n    \"id\": 2,\n    \"isAdmin\": false,\n    \"lastName\": \"Merck\",\n    \"password\": \"password\",\n    \"phoneNumbers\": [\n     {\n      \"id\": 3,\n      \"number\": \"015207417058\"\n     },\n     {\n      \"id\": 4,\n      \"number\": \"0715633841\"\n     }\n    ],\n    \"username\": \"chmeit02\"\n   },\n   {\n    \"email\": \"nimeit02@hs-esslingen.de\",\n    \"firstName\": \"Niklas\",\n    \"id\": 3,\n    \"isAdmin\": false,\n    \"lastName\": \"Meier\",\n    \"password\": \"password\",\n    \"phoneNumbers\": [\n     {\n      \"id\": 5,\n      \"number\": \"0123456789\"\n     },\n     {\n      \"id\": 6,\n      \"number\": \"01234567890\"\n     }\n    ],\n    \"username\": \"nimeit02\"\n   }\n  ],\n  \"version\": \"v1.3\"\n },\n {\n  \"endDate\": \"2023-03-30\",\n  \"features\": [\n   {\n    \"id\": 5,\n    \"number\": 19\n   },\n   {\n    \"id\": 6,\n    \"number\": 27\n   }\n  ],\n  \"id\": 3,\n  \"ips\": [\n   {\n    \"address\": \"233.132.138.235\",\n    \"id\": 5\n   },\n   {\n    \"address\": \"231.132.138.235\",\n    \"id\": 6\n   }\n  ],\n  \"licenseKey\": \"ThisIsASecureLicenceKeyFromCompanySWB-2\",\n  \"startDate\": \"2021-01-01\",\n  \"users\": [\n   {\n    \"email\": \"nimeit02@hs-esslingen.de\",\n    \"firstName\": \"Niklas\",\n    \"id\": 3,\n    \"isAdmin\": false,\n    \"lastName\": \"Meier\",\n    \"password\": \"password\",\n    \"phoneNumbers\": [\n     {\n      \"id\": 5,\n      \"number\": \"0123456789\"\n     },\n     {\n      \"id\": 6,\n      \"number\": \"01234567890\"\n     }\n    ],\n    \"username\": \"nimeit02\"\n   },\n   {\n    \"email\": \"glkoit00@hs-esslingen.de\",\n    \"firstName\": \"Glykeria\",\n    \"id\": 4,\n    \"isAdmin\": false,\n    \"lastName\": \"Koutsianou\",\n    \"password\": \"password\",\n    \"phoneNumbers\": [\n     {\n      \"id\": 7,\n      \"number\": \"012345678901\"\n     },\n     {\n      \"id\": 8,\n      \"number\": \"0123456789012\"\n     }\n    ],\n    \"username\": \"glkoit00\"\n   }\n  ],\n  \"version\": \"v1.9\"\n },\n {\n  \"endDate\": \"2022-12-24\",\n  \"features\": [\n   {\n    \"id\": 10,\n    \"number\": 10\n   },\n   {\n    \"id\": 11,\n    \"number\": 20\n   }\n  ],\n  \"id\": 10,\n  \"ips\": [\n   {\n    \"address\": \"255.255.255.255\",\n    \"id\": 10\n   },\n   {\n    \"address\": \"0.0.0.255\",\n    \"id\": 11\n   }\n  ],\n  \"licenseKey\": \"test\",\n  \"startDate\": \"2022-12-12\",\n  \"users\": [\n   {\n    \"email\": \"chris2@gmx.de\",\n    \"firstName\": \"Chris22\",\n    \"id\": 10,\n    \"isAdmin\": true,\n    \"lastName\": \"Merck2\",\n    \"password\": \"password\",\n    \"phoneNumbers\": [\n     {\n      \"id\": 10,\n      \"number\": \"012631823\"\n     },\n     {\n      \"id\": 11,\n      \"number\": \"tasdasdad\"\n     }\n    ],\n    \"username\": \"freake2y\"\n   }\n  ],\n  \"version\": \"v1.0\"\n }\n]"
+						}
+					]
+				},
+				{
+					"name": "Get Contract by Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/contract/:id",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"contract",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "successfully / 200",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseURL1}}/contract/10",
+									"host": [
+										"{{baseURL1}}"
+									],
+									"path": [
+										"contract",
+										"10"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Length",
+									"value": "453"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"endDate\": \"2022-12-24\",\n \"features\": [\n  {\n   \"id\": 10,\n   \"number\": 10\n  },\n  {\n   \"id\": 11,\n   \"number\": 20\n  }\n ],\n \"id\": 10,\n \"ips\": [\n  {\n   \"address\": \"255.255.255.255\",\n   \"id\": 10\n  },\n  {\n   \"address\": \"0.0.0.255\",\n   \"id\": 11\n  }\n ],\n \"licenseKey\": \"test\",\n \"startDate\": \"2022-12-12\",\n \"users\": [\n  {\n   \"email\": \"chris2@gmx.de\",\n   \"firstName\": \"Chris22\",\n   \"id\": 10,\n   \"isAdmin\": true,\n   \"lastName\": \"Merck2\",\n   \"password\": \"password\",\n   \"phoneNumbers\": [\n    {\n     \"id\": 10,\n     \"number\": \"012631823\"\n    },\n    {\n     \"id\": 11,\n     \"number\": \"tasdasdad\"\n    }\n   ],\n   \"username\": \"freake2y\"\n  }\n ],\n \"version\": \"v1.0\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Get Company of Contract",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/contract/:id/company",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"contract",
+								":id",
+								"company"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "successfully / 200",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseURL1}}/contract/10/company",
+									"host": [
+										"{{baseURL1}}"
+									],
+									"path": [
+										"contract",
+										"10",
+										"company"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Length",
+									"value": "878"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"address\": {\n  \"area\": \"Emerald lake3\",\n  \"city\": \"test4\",\n  \"country\": \"Canada2\",\n  \"houseNumber\": 112,\n  \"id\": 10,\n  \"streetName\": \"Street6\",\n  \"zipCode\": 346345\n },\n \"companyName\": \"Google\",\n \"contracts\": [\n  {\n   \"endDate\": \"2022-12-24\",\n   \"features\": [\n    {\n     \"id\": 10,\n     \"number\": 10\n    },\n    {\n     \"id\": 11,\n     \"number\": 20\n    }\n   ],\n   \"id\": 10,\n   \"ips\": [\n    {\n     \"address\": \"255.255.255.255\",\n     \"id\": 10\n    },\n    {\n     \"address\": \"0.0.0.255\",\n     \"id\": 11\n    }\n   ],\n   \"licenseKey\": \"test\",\n   \"startDate\": \"2022-12-12\",\n   \"users\": [\n    {\n     \"email\": \"chris2@gmx.de\",\n     \"firstName\": \"Chris22\",\n     \"id\": 10,\n     \"isAdmin\": true,\n     \"lastName\": \"Merck2\",\n     \"password\": \"password\",\n     \"phoneNumbers\": [\n      {\n       \"id\": 10,\n       \"number\": \"012631823\"\n      },\n      {\n       \"id\": 11,\n       \"number\": \"tasdasdad\"\n      }\n     ],\n     \"username\": \"freake2y\"\n    }\n   ],\n   \"version\": \"v1.0\"\n  }\n ],\n \"department\": \"IT\",\n \"id\": 10,\n \"users\": [\n  {\n   \"email\": \"chris2@gmx.de\",\n   \"firstName\": \"Chris22\",\n   \"id\": 10,\n   \"isAdmin\": true,\n   \"lastName\": \"Merck2\",\n   \"password\": \"password\",\n   \"phoneNumbers\": [\n    {\n     \"id\": 10,\n     \"number\": \"012631823\"\n    },\n    {\n     \"id\": 11,\n     \"number\": \"tasdasdad\"\n    }\n   ],\n   \"username\": \"freake2y\"\n  }\n ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Get Users of Contract",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/contract/:id/user",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"contract",
+								":id",
+								"user"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "successfully / 200",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseURL1}}/contract/10/user",
+									"host": [
+										"{{baseURL1}}"
+									],
+									"path": [
+										"contract",
+										"10",
+										"user"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Length",
+									"value": "215"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "[\n {\n  \"email\": \"chris2@gmx.de\",\n  \"firstName\": \"Chris22\",\n  \"id\": 10,\n  \"isAdmin\": true,\n  \"lastName\": \"Merck2\",\n  \"password\": \"password\",\n  \"phoneNumbers\": [\n   {\n    \"id\": 10,\n    \"number\": \"012631823\"\n   },\n   {\n    \"id\": 11,\n    \"number\": \"tasdasdad\"\n   }\n  ],\n  \"username\": \"freake2y\"\n }\n]"
+						}
+					]
+				},
+				{
+					"name": "Get Ips of Contract",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/contract/:id/ips",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"contract",
+								":id",
+								"ips"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "successfully / 200",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseURL1}}/contract/10/ips",
+									"host": [
+										"{{baseURL1}}"
+									],
+									"path": [
+										"contract",
+										"10",
+										"ips"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Length",
+									"value": "71"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "[\n {\n  \"address\": \"255.255.255.255\",\n  \"id\": 10\n },\n {\n  \"address\": \"0.0.0.255\",\n  \"id\": 11\n }\n]"
+						}
+					]
+				},
+				{
+					"name": "Get Features of Contract",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/contract/:id/features",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"contract",
+								":id",
+								"features"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "successfully / 200",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseURL1}}/contract/10/features",
+									"host": [
+										"{{baseURL1}}"
+									],
+									"path": [
+										"contract",
+										"10",
+										"features"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Length",
+									"value": "45"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "[\n {\n  \"id\": 10,\n  \"number\": 10\n },\n {\n  \"id\": 11,\n  \"number\": 20\n }\n]"
+						}
+					]
+				},
+				{
+					"name": "Update Contract",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"endDate\": \"2022-12-24\",\r\n\t\"features\": [\r\n\t\t{\r\n\t\t\t\"id\": 10,\r\n\t\t\t\"number\": 10\r\n\t\t},\r\n\t\t{\r\n\t\t\t\"id\": 11,\r\n\t\t\t\"number\": 21\r\n\t\t}\r\n\t],\r\n\t\"id\": 10,\r\n\t\"ips\": [\r\n\t\t{\r\n\t\t\t\"address\": \"255.255.255.254\",\r\n\t\t\t\"id\": 10\r\n\t\t},\r\n\t\t{\r\n\t\t\t\"address\": \"0.0.0.255\",\r\n\t\t\t\"id\": 11\r\n\t\t}\r\n\t],\r\n\t\"licenseKey\": \"abcdefghijklmnopqrstuvwxyz - Updated\",\r\n\t\"startDate\": \"2022-12-12\",\r\n\t\"users\": [\r\n\t\t{\r\n\t\t\t\"id\": 10\r\n\t\t}\r\n\t],\r\n\t\"version\": \"v1.0\"\r\n}"
+						},
+						"url": {
+							"raw": "localhost:8080/contract/update",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"contract",
+								"update"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "successfully / 200",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseURL1}}/contract/update",
+									"host": [
+										"{{baseURL1}}"
+									],
+									"path": [
+										"contract",
+										"update"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Length",
+									"value": "490"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"endDate\": \"2022-12-24\",\n \"features\": [\n  {\n   \"id\": 10,\n   \"number\": 10\n  },\n  {\n   \"id\": 11,\n   \"number\": 21\n  }\n ],\n \"id\": 10,\n \"ips\": [\n  {\n   \"address\": \"255.255.255.254\"\n  },\n  {\n   \"address\": \"0.0.0.255\"\n  }\n ],\n \"licenseKey\": \"abcdefghijklmnopqrstuvwxyz - Updated\",\n \"startDate\": \"2022-12-12\",\n \"users\": [\n  {\n   \"email\": \"max@muster.de\",\n   \"firstName\": \"Max\",\n   \"id\": 10,\n   \"isAdmin\": true,\n   \"lastName\": \"Mustermann - Updated\",\n   \"password\": \"password\",\n   \"phoneNumbers\": [\n    {\n     \"id\": 10,\n     \"number\": \"0123456789 - Updated\"\n    },\n    {\n     \"id\": 11,\n     \"number\": \"01234567890\"\n    }\n   ],\n   \"username\": \"Muster\"\n  }\n ],\n \"version\": \"v1.0\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Remove Contract by Id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/contract/remove/:id",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"contract",
+								"remove",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "no-content / 204",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{baseURL1}}/contract/remove/10",
+									"host": [
+										"{{baseURL1}}"
+									],
+									"path": [
+										"contract",
+										"remove",
+										"10"
+									]
+								}
+							},
+							"status": "No Content",
+							"code": 204,
+							"_postman_previewlanguage": "Text",
+							"header": [],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				},
+				{
+					"name": "Remove all Contracts",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/contract/remove/all",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"contract",
+								"remove",
+								"all"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "no-content / 204",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{baseURL1}}/contract/remove/all",
+									"host": [
+										"{{baseURL1}}"
+									],
+									"path": [
+										"contract",
+										"remove",
+										"all"
+									]
+								}
+							},
+							"status": "No Content",
+							"code": 204,
+							"_postman_previewlanguage": "Text",
+							"header": [],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				}
+			]
+		}
+	]
+}
