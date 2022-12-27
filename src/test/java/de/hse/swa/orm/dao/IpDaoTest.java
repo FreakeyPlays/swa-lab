@@ -94,5 +94,15 @@ public class IpDaoTest {
     assertEquals(expectedIpListSize, _ipDao.getAllIps().size());
   }
 
-  //TODO: Remove all IPs
+  @Test
+  public void removeAllIpsTest(){
+    final String[] prefix = {"A_", "B_", "C_"};
+
+    for(int i = 0; i < prefix.length; i++){
+      createIpInDatabase(prefix[i]);
+    }
+
+    _ipDao.removeAllIps();
+    assertEquals(0, _ipDao.getAllIps().size());
+  }
 }
