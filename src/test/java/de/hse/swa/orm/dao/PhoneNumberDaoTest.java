@@ -93,4 +93,6 @@ public class PhoneNumberDaoTest {
 
     assertEquals(expectedFeatureListSize, _phoneNumberDao.getAllPhoneNumbers().size());
   }
+
+  //TODO: Remove all PhoneNumbers
 }

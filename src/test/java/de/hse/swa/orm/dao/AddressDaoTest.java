@@ -104,4 +104,6 @@ public class AddressDaoTest {
 
     assertNull(_addressDao.getAddressByID(this.current_id));
   }
+
+  //TODO: Delete all Addresses
 }

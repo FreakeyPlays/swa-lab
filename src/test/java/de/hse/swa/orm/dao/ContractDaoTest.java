@@ -94,6 +94,8 @@ public class ContractDaoTest {
     assertEquals(prefixes.length, _contractDao.getAllContracts().size());
   }
 
+  //TODO: Get Contract by Company
+
   @Test
   public void updateContractTest(){
     final String prefix = "A_";
@@ -115,4 +117,6 @@ public class ContractDaoTest {
 
     assertNull(_contractDao.getContract(this.current_id));
   }
+
+  //TODO: Delete All Contracts
 }

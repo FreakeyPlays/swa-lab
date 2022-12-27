@@ -89,6 +89,8 @@ public class CompanyDaoTest {
     assertEquals(departmentName, res.getDepartment());
   }
 
+  //TODO: Get Company by Name
+
   @Test
   public void updateCompanyTest(){
     final String companyName = "Test Company GmbH";
@@ -116,4 +118,6 @@ public class CompanyDaoTest {
 
     assertEquals(0, _companyDao.getAllCompanies().size());
   }
+
+  //TODO: Delete all Companyies
 }

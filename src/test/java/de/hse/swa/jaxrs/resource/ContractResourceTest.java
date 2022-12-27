@@ -106,6 +106,20 @@ public class ContractResourceTest {
   }
 
   @Test
+  public void getAllActiveContractsTest(){
+    final String prefix = "A_";
+    Contract contract = createContractDatabaseEntry(prefix);
+
+    given()
+      .contentType("application/json")
+    .when()
+      .get("/contract/all/active")
+    .then()
+      .statusCode(200)
+      .body("$.size", equalTo(1));
+  }
+
+  @Test
   public void getContractByIdTest(){
     final String prefix = "A_";
     Contract contract = createContractDatabaseEntry(prefix);
@@ -120,19 +134,13 @@ public class ContractResourceTest {
       .body("$", hasKey("id"));
   }
 
-  @Test
-  public void getAllActiveContractsTest(){
-    final String prefix = "A_";
-    Contract contract = createContractDatabaseEntry(prefix);
+  //TODO: Get Company of Contract
 
-    given()
-      .contentType("application/json")
-    .when()
-      .get("/contract/all/active")
-    .then()
-      .statusCode(200)
-      .body("$.size", equalTo(1));
-  }
+  //TODO: Get Users of Contract
+
+  //TODO: Get IPs of Contract
+
+  //TODO: Get Features of Contract
 
   @Test
   public void updateContractTest(){
@@ -151,6 +159,8 @@ public class ContractResourceTest {
       .statusCode(200)
       .body("licenseKey", equalTo(updatedLicenseKey));
   }
+
+  //TODO: Remove all Contracts
 
   @Test
   public void deleteContractTest(){

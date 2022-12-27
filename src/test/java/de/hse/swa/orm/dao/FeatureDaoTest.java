@@ -91,4 +91,6 @@ public class FeatureDaoTest {
 
     assertEquals(expectedFeatureListSize, _featureDao.getAllFeatures().size());
   }
+
+  //TODO: Remove all Features
 }

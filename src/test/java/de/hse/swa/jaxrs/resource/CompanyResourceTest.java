@@ -63,19 +63,6 @@ public class CompanyResourceTest {
     .then()
       .statusCode(200)
       .body("companyName", equalTo("B_Company"));
-    
-  }
-
-  @Test
-  public void getSingleCompanyTest(){
-    given()
-      .contentType("application/json")
-      .pathParam("id", this.current_id)
-    .when()
-      .get("/company/{id}")
-    .then()
-      .statusCode(200)
-      .body("companyName", equalTo("A_Company"));  
   }
 
   @Test
@@ -93,6 +80,18 @@ public class CompanyResourceTest {
   }
 
   @Test
+  public void getSingleCompanyTest(){
+    given()
+      .contentType("application/json")
+      .pathParam("id", this.current_id)
+    .when()
+      .get("/company/{id}")
+    .then()
+      .statusCode(200)
+      .body("companyName", equalTo("A_Company"));  
+  }
+
+  @Test
   public void getCompanyByNameTest(){
     given()
       .contentType("application/json")
@@ -103,6 +102,10 @@ public class CompanyResourceTest {
       .statusCode(200)
       .body("id", equalTo(this.current_id.intValue()));
   }
+
+  //TODO: Get Users of Company
+
+  //TODO: Get Contracts of Company
 
   @Test
   public void getAddressOfCompanyTest(){
@@ -136,6 +139,8 @@ public class CompanyResourceTest {
         "department", equalTo("Updated Department")
       );
   }
+
+  //TODO: Remove all Companies
 
   @Test
   public void deleteCompanyTest(){

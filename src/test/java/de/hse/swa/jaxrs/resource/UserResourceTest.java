@@ -130,21 +130,6 @@ public class UserResourceTest {
   }
 
   @Test
-  public void getUserByIdTest(){
-    final String prefix = "A_";
-    User user = createUserDatabaseEntry(prefix);
-
-    given()
-      .contentType("application/json")
-      .pathParam("id", this.current_id)
-    .when()
-      .get("/user/{id}")
-    .then()
-      .statusCode(200)
-      .body("id.longValue()", equalTo(this.current_id));
-  }
-
-  @Test
   public void getAllUsersTest(){
     final String[] prefixes = {"A_", "B_", "C_"};
     for(int i = 0; i < prefixes.length; i++){
@@ -158,6 +143,23 @@ public class UserResourceTest {
     .then()
       .statusCode(200)
       .body("$.size", equalTo(prefixes.length));
+  }
+
+  //TODO: Get all Users of Company
+
+  @Test
+  public void getUserByIdTest(){
+    final String prefix = "A_";
+    User user = createUserDatabaseEntry(prefix);
+
+    given()
+      .contentType("application/json")
+      .pathParam("id", this.current_id)
+    .when()
+      .get("/user/{id}")
+    .then()
+      .statusCode(200)
+      .body("id.longValue()", equalTo(this.current_id));
   }
 
   @Test
@@ -174,6 +176,12 @@ public class UserResourceTest {
       .statusCode(200)
       .body("id.longValue()", equalTo(this.current_id));
   }
+
+  //TODO: Get PhoneNumbers of User
+
+  //TODO: Get Contracts of User
+
+  //TODO: Get Company of User
 
   @Test
   public void updateUserTest(){
@@ -192,6 +200,8 @@ public class UserResourceTest {
       .statusCode(200)
       .body("firstName", equalTo(updatedFistName));
   }
+
+  //TODO: Remove all Users
 
   @Test
   public void deleteUserTest(){
