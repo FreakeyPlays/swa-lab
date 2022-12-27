@@ -11,9 +11,7 @@ import javax.transaction.Transactional;
 
 import org.jboss.logging.Logger;
 
-import de.hse.swa.orm.model.Company;
-import de.hse.swa.orm.model.Contract;
-import de.hse.swa.orm.model.User;
+import de.hse.swa.orm.model.*;
 
 @ApplicationScoped
 public class ContractDao {
