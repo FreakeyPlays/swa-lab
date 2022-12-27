@@ -94,5 +94,15 @@ public class PhoneNumberDaoTest {
     assertEquals(expectedFeatureListSize, _phoneNumberDao.getAllPhoneNumbers().size());
   }
 
-  //TODO: Remove all PhoneNumbers
+  @Test
+  public void removeAllPhoneNumbersTest(){
+    final String[] prefix = {"A_", "B_", "C_"};
+
+    for(int i = 0; i < prefix.length; i++){
+      createPhoneNumberInDatabase(prefix[i]);
+    }
+
+    _phoneNumberDao.removeAllPhoneNumbers();
+    assertEquals(0, _phoneNumberDao.getAllPhoneNumbers().size());
+  }
 }
