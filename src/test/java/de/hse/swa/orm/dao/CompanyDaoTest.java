@@ -89,7 +89,17 @@ public class CompanyDaoTest {
     assertEquals(departmentName, res.getDepartment());
   }
 
-  //TODO: Get Company by Name
+  @Test
+  public void getCompanyByCompanyName(){
+    final String companyName = "Test Company GmbH";
+    final String departmentName = "IT";
+
+    createCompany(companyName, departmentName);
+
+    Company res = _companyDao.getCompanyByName(companyName);
+    assertEquals(companyName, res.getCompanyName());
+    assertEquals(departmentName, res.getDepartment());
+  }
 
   @Test
   public void updateCompanyTest(){
@@ -119,5 +129,16 @@ public class CompanyDaoTest {
     assertEquals(0, _companyDao.getAllCompanies().size());
   }
 
-  //TODO: Delete all Companyies
+  @Test
+  public void removeAllCompanies(){
+    final String[] names = {"Comp1", "Comp2", "Comp3"};
+    final String[] departments = {"Dep1", "Dep2", "Dep3"};
+
+    for(int i = 0; i < names.length; i++){
+      createCompany(names[i], departments[i]);
+    }
+
+    _companyDao.removeAllCompanies();
+    assertEquals(0, _companyDao.getAllCompanies().size());
+  }
 }
