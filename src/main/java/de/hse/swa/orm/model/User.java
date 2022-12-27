@@ -15,6 +15,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.PreRemove;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
@@ -157,6 +158,14 @@ public class User implements Serializable {
 
   public void setCompanyId(Company companyId) {
     this.companyId = companyId;
+  }
+
+  @PreRemove
+  public void removeAllContracts(){
+    for(Contract contract : this.contracts){
+      contract.getUsers().remove(this);
+    }
+    this.contracts.clear();
   }
 
   @Override     
