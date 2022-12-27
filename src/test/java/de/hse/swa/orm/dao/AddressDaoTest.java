@@ -105,5 +105,15 @@ public class AddressDaoTest {
     assertNull(_addressDao.getAddressByID(this.current_id));
   }
 
-  //TODO: Delete all Addresses
+  @Test
+  public void deleteAllAddressesTest(){
+    final String[] prefix = {"A_", "B_", "C_"};
+
+    for(int i = 0; i < prefix.length; i++){
+      createAddressInDatabase(prefix[i]);
+    }
+
+    _addressDao.removeAllAddresses();
+    assertEquals(0, _addressDao.getAllAddresses().size());
+  }
 }
