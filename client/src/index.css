@@ -5,9 +5,36 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: rgb(199, 199, 199);
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.center{
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vH; 
+  justify-content: center; 
+}
+
+.loginbox, .loginform {
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+}
+
+.formContrl {
+  margin-top: 5px;
+  padding: 10px;
+}
+
+.buttonRightAlign{
+  margin-top: 20px;
+  padding: 20px;
+  
 }
