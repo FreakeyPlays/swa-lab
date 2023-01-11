@@ -21,7 +21,6 @@ class Login extends React.Component{
             loginButtonDisable: true,
         }; 
     }
-    //showpassword
     handleChange = (e) => {
         const username = this.state.username; 
         if(e.target.id==="username"){
@@ -53,9 +52,8 @@ class Login extends React.Component{
         }
     }
     handleLoginSubmit = (e) =>{
-        console.log("user + password " + this.state.username, this.state.password);
-        var formData = JSON.stringify(this.state); 
-        fetch("http://localhost:8080/user/login" , {
+        let formData = JSON.stringify(this.state); 
+        fetch("http://localhost:8080/user/login?username=Muster&password=password" , {
             headers: {
                 "Content-Type": "application/json", 
                 "Accept": "application/json", 
@@ -69,7 +67,7 @@ class Login extends React.Component{
         .catch(function(error) { console.log('Request failed', error);
        
         });
-
+    
     e.preventDefault(); 
     }
 
