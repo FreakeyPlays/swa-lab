@@ -53,7 +53,7 @@ class Login extends React.Component{
     }
     handleLoginSubmit = (e) =>{
         let formData = JSON.stringify(this.state); 
-        fetch("http://localhost:8080/user/login?username=Muster&password=password" , {
+        fetch("http://localhos:8080:user/login?=muster&=password" , {
             headers: {
                 "Content-Type": "application/json", 
                 "Accept": "application/json", 

@@ -3,7 +3,7 @@ import React from "react";
 import Login from './Login';
 import View from "./View";
 
-const theUrl = "localhost:8080/user"; 
+
 
 class App extends React.Component{
 
@@ -20,20 +20,20 @@ class App extends React.Component{
             console.log("authorized");
     }
 
-    render(){
+    /*render(){
         if(this.state.loggedIn){
             return(
                 <View></View>
             );
         } else {
         return(
-        <Login url={theUrl} authorized={this.authorized}></Login>
+        <Login authorized={this.authorized}></Login>
         );
 
         }    
         
-    }
-    /*render(){
+    }*/
+    render(){
         
         return(
         <View></View>
@@ -41,7 +41,7 @@ class App extends React.Component{
         
       
         
-    }*/
+    }
 }
 
 export default App; 

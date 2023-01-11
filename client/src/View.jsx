@@ -12,17 +12,15 @@ class View extends React.Component{
 	}
 
     componentDidMount(){
-            fetch("http:/localhost:8080/company/all")
-            .then(function(response) { return response.json()})
-            .then( companies => this.setState({ companies }));
-            console.log("fetched data ")
+        fetch("http://localhost:8080/company/all")
+        .then( response => response.json())
+        .then( companies => this.setState({companies}))
+        console.log(this.state.companies); 
     }
 
     render(){
 
-        if (this.state.isLoading) {
-            return <div>Loading...</div>;
-        }
+        
         return(
             <Table>
                 <TableHead>
@@ -34,11 +32,11 @@ class View extends React.Component{
                     </TableRow>
                 </TableHead>
                 <TableBody>
-                    {this.state.companies.map(comp => ( 
-                        <TableRow key={comp.value}>
-                            <TableCell>{comp.id}</TableCell>
-                            <TableCell>{comp.companyName}</TableCell>
-                            <TableCell>{comp.address}</TableCell>
+                    {this.state.companies.map(company => ( 
+                        <TableRow key={company.value}>
+                            <TableCell>{company.companyName}</TableCell>
+                            <TableCell></TableCell>
+                            <TableCell></TableCell>
                             <TableCell><button onClick={this.handleSave}>Save</button></TableCell>
                         </TableRow>
                     ))}
