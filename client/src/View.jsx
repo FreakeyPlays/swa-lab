@@ -33,7 +33,7 @@ class View extends React.Component{
                 </TableHead>
                 <TableBody>
                     {this.state.companies.map(company => ( 
-                        <TableRow key={company.value}>
+                        <TableRow key={company.id}>
                             <TableCell>{company.companyName}</TableCell>
                             <TableCell></TableCell>
                             <TableCell></TableCell>

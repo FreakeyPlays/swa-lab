@@ -36,8 +36,7 @@ class Login extends React.Component{
         }
     }; 
 
-   
-    status (response){
+   status (response){
         if(response.status >= 200 && response.status < 300 ) {
             return Promise.resolve(response); 
         } else {
@@ -45,25 +44,25 @@ class Login extends React.Component{
         }
     }
 
-    processData = (data) => {
-        let tid = data.id; 
-        if(tid !== 0){
+    processData(response) {
+        console.log(response); 
+        if(response !== false){
             this.props.authorized(); 
         }
     }
     handleLoginSubmit = (e) =>{
-        let formData = JSON.stringify(this.state); 
-        fetch("http://localhos:8080:user/login?=muster&=password" , {
-            headers: {
+        //let formData = JSON.stringify(this.state); 
+        fetch("http://localhost:8080/user/login?username="+this.state.username+"&password="+this.state.password , {
+            method: 'POST', 
+            /*headers: {
                 "Content-Type": "application/json", 
                 "Accept": "application/json", 
-            }, 
-            method: 'POST', 
-            body: formData
+            },
+            body: formData,*/
         })
         .then(this.status)
         .then(function(response) { return response.json()})
-        .then(this.processData)
+        .then((response)=>this.processData(response))
         .catch(function(error) { console.log('Request failed', error);
        
         });

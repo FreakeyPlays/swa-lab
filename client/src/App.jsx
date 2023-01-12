@@ -20,7 +20,7 @@ class App extends React.Component{
             console.log("authorized");
     }
 
-    /*render(){
+    render(){
         if(this.state.loggedIn){
             return(
                 <View></View>
@@ -32,8 +32,8 @@ class App extends React.Component{
 
         }    
         
-    }*/
-    render(){
+    }
+    /*render(){
         
         return(
         <View></View>
@@ -41,7 +41,7 @@ class App extends React.Component{
         
       
         
-    }
+    }*/
 }
 
 export default App; 
