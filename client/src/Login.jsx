@@ -49,6 +49,17 @@ class Login extends React.Component{
         let tid = data.id; 
         if(tid !== 0){
             this.props.authorized(); 
+            /*
+            if (response.ok) {
+            const data = await response.json();
+            //compare received data with input fields
+            if(data.username === username && data.password === password){
+            console.log("login successful");
+            // handle successful login, store the token in localStorage or use cookies
+        }else{
+            console.log("invalid username or password");
+            // handle invalid login
+            */
         }
     }
     handleLoginSubmit = (e) =>{
