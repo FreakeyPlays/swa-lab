@@ -30,18 +30,8 @@ class App extends React.Component{
         <Login authorized={this.authorized}></Login>
         );
 
-        }    
-        
+        }      
     }
-    /*render(){
-        
-        return(
-        <View></View>
-        );
-        
-      
-        
-    }*/
 }
 
 export default App; 

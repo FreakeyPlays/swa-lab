@@ -33,6 +33,18 @@ code {
   padding: 10px;
 }
 
+.usernamefield>div{
+  margin: 10px;
+}
+
+.error {
+  display:none;
+  background-color: lightpink;
+  color: firebrick;
+  font-weight: bold;
+  padding: 3px;
+}
+
 .buttonRightAlign{
   margin-top: 20px;
   padding: 20px;

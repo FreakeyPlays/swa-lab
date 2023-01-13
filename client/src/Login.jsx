@@ -48,34 +48,19 @@ class Login extends React.Component{
         console.log(response); 
         if(response !== false){
             this.props.authorized(); 
-            /*
-            if (response.ok) {
-            const data = await response.json();
-            //compare received data with input fields
-            if(data.username === username && data.password === password){
-            console.log("login successful");
-            // handle successful login, store the token in localStorage or use cookies
-        }else{
-            console.log("invalid username or password");
-            // handle invalid login
-            */
         }
+        else{
+            document.getElementById('error').style.display = "flex";
+            }
     }
     handleLoginSubmit = (e) =>{
-        //let formData = JSON.stringify(this.state); 
         fetch("http://localhost:8080/user/login?username="+this.state.username+"&password="+this.state.password , {
-            method: 'POST', 
-            /*headers: {
-                "Content-Type": "application/json", 
-                "Accept": "application/json", 
-            },
-            body: formData,*/
+            method: 'POST',
         })
         .then(this.status)
         .then(function(response) { return response.json()})
         .then((response)=>this.processData(response))
         .catch(function(error) { console.log('Request failed', error);
-       
         });
     
     e.preventDefault(); 
@@ -85,17 +70,22 @@ class Login extends React.Component{
     render() {   
         return(
             <div className="center">
+                <p id="error" className="error"> Login failed!</p>
                 <h1>Log in </h1>
                 <div className="loginbox">
                     <form  className="loginform" onSubmit={this.handleLoginSubmit}>
+                        <div className="usernamefield">
                         <FormControl className="formContrl">
                             <InputLabel htmlFor="Login"> USERNAME </InputLabel>
                             <Input id="username" type="text" value={this.state.username} onChange={this.handleChange}/>
                         </FormControl>
-                        <FormControl >
+                        </div>
+                        <div className="passwordfield">
+                        <FormControl>
                             <InputLabel htmlFor="password"> PASSWORD </InputLabel>
                             <Input id="password" type="password" value={this.state.password} onChange={this.handleChange}/> 
                         </FormControl>
+                        </div>
                         <div className="buttonRightAlign">
                             <Button variant="contained" color="primary" type="submit" value="submit" disabled={this.state.loginButtonDisable} >Login</Button>
                         </div>
