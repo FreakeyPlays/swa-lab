@@ -3,10 +3,9 @@ import Contracts from "./ContractsView";
 import Customer from "./CustomerView"; 
 import Users from "./UserView"; 
 import { BrowserRouter, Route, Link, Routes } from "react-router-dom"; 
-
+import "./Views.css";
 
 import Button from "@mui/material/Button";
-import { Stack } from "@mui/material";
 
 
 
@@ -29,27 +28,15 @@ class View extends React.Component{
         })            
     }
 
-    showCustomerTable = () => {
-      this.setState({customerView:true}); 
-    }; 
-
-    showContractsTable = () => {
-      this.setState({contractsView:true}); 
-    }; 
-
-    showUserTable = () => {
-      this.setState({userView:true}); 
-    }; 
-
     render(){
 
         return(
           <BrowserRouter>
                 <div >
                     <div className="button">
-                    <Button variant="contained" size="large"><Link to="/customer">Customers</Link></Button>
-                    <Button variant="contained" size="large"><Link to="/contracts">Conracts</Link></Button>
-                    <Button variant="contained" size="large"><Link to="/users">Users</Link></Button>
+                    <Button variant="contained" size="large" ><Link to="/customer" style={{ textDecoration: 'none' }} className="link" >Customers</Link></Button>
+                    <Button variant="contained" size="large"><Link to="/contracts" style={{ textDecoration: 'none' }} className="link">Conracts</Link></Button>
+                    <Button variant="contained" size="large"><Link to="/users" style={{ textDecoration: 'none' }} className="link">Users</Link></Button>
                     </div>
                 <Routes>
                     <Route>
