@@ -50,3 +50,19 @@ code {
   padding: 20px;
   
 }
+
+#customerbtn{
+  margin: 5px;
+}
+
+#contractsbtn{
+  margin: 5px;
+}
+
+#userbtn{
+  margin: 5px;
+}
+
+.addbtn{
+  margin-left: 10px;
+}
