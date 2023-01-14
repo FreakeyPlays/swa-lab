@@ -1,50 +1,20 @@
 import React from "react";
-import Contracts from "./ContractsView"; 
-import Customer from "./CustomerView"; 
-import Users from "./UserView"; 
 import { BrowserRouter, Route, Link, Routes } from "react-router-dom"; 
+import Customer from "./CustomerView";
+import Contracts from "./ContractsView"
+import Users from "./UserView";
+import { Button } from "@mui/material";
+
+import "./Views.css";
 
 
-import Button from "@mui/material/Button";
-import { Stack } from "@mui/material";
 
+class Test extends React.Component{
 
-
-class View extends React.Component{
-
-    constructor(props) {
-		super(props);
-	    this.state = {	  
-            list: [],
-            
-		};		
-	}
-
-    componentDidMount(){
-        fetch("http://localhost:8080/company/all")
-        .then( response => response.json())
-        .then( list => {
-          console.log(list)
-          this.setState({list})
-        })            
-    }
-
-    showCustomerTable = () => {
-      this.setState({customerView:true}); 
-    }; 
-
-    showContractsTable = () => {
-      this.setState({contractsView:true}); 
-    }; 
-
-    showUserTable = () => {
-      this.setState({userView:true}); 
-    }; 
 
     render(){
-
         return(
-          <BrowserRouter>
+            <BrowserRouter>
                 <div >
                     <div className="button">
                     <Button variant="contained" size="large"><Link to="/customer">Customers</Link></Button>
@@ -63,9 +33,7 @@ class View extends React.Component{
 
 
         ); 
-
-      }        
     }
+}
 
-
-export default View;
+export default Test; 
