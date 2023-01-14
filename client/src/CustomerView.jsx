@@ -1,6 +1,7 @@
 import React from "react";
 
 import { Button, Table, TableBody, TableCell, TableHead, TableRow } from "@mui/material";
+import View from "./View";
 
 
 class Customer extends React.Component{
@@ -23,16 +24,17 @@ class Customer extends React.Component{
     render() {
 
         return(
-            
             <div className="view">
             <h1>Customers</h1>
             <Button variant="contained" size="medium">Add</Button>
+            <Button className="userbtn" variant="contained" size="large" >User</Button>
+            <Button className="contractsbtn" variant="contained" size="large" onClick={new View(this.state).showContractsTable}>Contracts</Button>
             <Table>
                 <TableHead>
                     <TableRow>
                         <TableCell>Name</TableCell>
                         <TableCell>Street</TableCell>
-                        <TableCell></TableCell>
+                        <TableCell>Number</TableCell>
                         <TableCell>City</TableCell>
                         <TableCell></TableCell> 
                         <TableCell></TableCell> 
