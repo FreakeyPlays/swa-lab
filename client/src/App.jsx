@@ -28,9 +28,10 @@ class App extends React.Component{
         } else {
         return(
         <Login authorized={this.authorized}></Login>
+        
         );
-
-        }      
+        }
+             
     }
 }
 
