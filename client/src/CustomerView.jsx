@@ -1,5 +1,6 @@
 import React from "react";
 import AddCustomer from "./AddCustomer";
+import EditCustomer from "./EditContracts";
 import { Button, ButtonToolbar } from "react-bootstrap";
 
 import { Table, TableBody, TableCell, TableHead, TableRow } from "@mui/material";
@@ -23,11 +24,6 @@ class Customer extends React.Component{
         })
     }
 
-    handleAdd = () => {
-        this.setState({showAddCustomer:true});
-        console.log("add clicked");
-    }
-    
 
     render() {
         let disableAddCustomer = () => this.setState({showAddCustomer:false}); 
@@ -56,7 +52,7 @@ class Customer extends React.Component{
                             <TableCell>{company.address.streetName}</TableCell>
                             <TableCell>{company.address.houseNumber}</TableCell>
                             <TableCell>{company.address.city}</TableCell>
-                            <TableCell><Button variant="contained" size="small" onClick={this.handleEdit}>Edit</Button></TableCell>
+                            <TableCell><EditCustomer/></TableCell>
                             <TableCell><Button variant="contained" size="small" onClick={this.handleDelete}>Delete</Button></TableCell>
                             <TableCell><Button variant="contained" size="small" onClick={this.handleShowContracts}>Contracts</Button></TableCell>
                             <TableCell><Button variant="contained" size="small" onClick={this.handleShowUsers}>Users</Button></TableCell>

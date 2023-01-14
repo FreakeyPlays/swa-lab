@@ -21,16 +21,15 @@ class App extends React.Component{
     }
 
     render(){
-        if(this.state.loggedIn){
+        /*if(this.state.loggedIn){
             return(
                 <View></View>
             );
-        } else {
+        } else {*/
         return(
-        <Login authorized={this.authorized}></Login>
-        
+        //<Login authorized={this.authorized}></Login>
+        <View> </View>
         );
-        }
              
     }
 }
