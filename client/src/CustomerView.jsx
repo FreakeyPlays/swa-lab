@@ -1,6 +1,8 @@
 import React from "react";
+import AddCustomer from "./AddCustomer";
+import { Button, ButtonToolbar } from "react-bootstrap";
 
-import { Button, Table, TableBody, TableCell, TableHead, TableRow } from "@mui/material";
+import { Table, TableBody, TableCell, TableHead, TableRow } from "@mui/material";
 
 
 class Customer extends React.Component{
@@ -8,7 +10,8 @@ class Customer extends React.Component{
     constructor(props){
         super(props); 
             this.state = {
-                list: []
+                list: [], 
+                showAddCustomer : false 
             }; 
     }
     componentDidMount(){
@@ -20,13 +23,20 @@ class Customer extends React.Component{
         })
     }
 
-    render() {
+    handleAdd = () => {
+        this.setState({showAddCustomer:true});
+        console.log("add clicked");
+    }
+    
 
-        return(
-            
+    render() {
+        let disableAddCustomer = () => this.setState({showAddCustomer:false}); 
+
+        return(    
             <div className="view">
             <h1>Customers</h1>
             <Button id="addbtn_customer" className="addbtn" variant="contained" size="medium">Add</Button>
+            <AddCustomer show={this.state.showAddCustomer} onHide = {disableAddCustomer}/>
             <Table>
                 <TableHead>
                     <TableRow>

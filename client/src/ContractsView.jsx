@@ -37,7 +37,7 @@ class Customer extends React.Component{
                         <TableCell></TableCell> 
                         <TableCell></TableCell> 
                         <TableCell></TableCell>     
-                        <TableCell></TableCell>    
+                           
                     </TableRow>
                 </TableHead>
                     <TableBody>
