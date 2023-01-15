@@ -8,16 +8,26 @@ class Customer extends React.Component{
     constructor(props){
         super(props); 
             this.state = {
-                constracts: []
+                contracts: []
             }; 
     }
     componentDidMount(){
-        fetch("http://localhost:8080/contract/all")
+        fetch(process.env.REACT_APP_API_BASE + "/contract/all")
         .then( response => response.json())
-        .then( constracts => {
-          console.log(constracts)
-          this.setState({constracts})
+        .then( contracts => {
+          console.log(contracts)
+          this.setState({contracts})
         })
+    }
+
+    handleDelete = (id) => {
+        console.log(id)
+        fetch(process.env.REACT_APP_API_BASE + "/contract/remove/"+id, {method: 'DELETE'})
+            .then( response => { 
+                console.log(response) 
+            })
+            .then (() => this.setState({status: 'Delete successful'}))
+            .then (() => this.componentDidMount())
     }
 
     render() {
@@ -37,19 +47,17 @@ class Customer extends React.Component{
                         <TableCell></TableCell> 
                         <TableCell></TableCell> 
                         <TableCell></TableCell>     
-                           
                     </TableRow>
                 </TableHead>
                     <TableBody>
-                    {this.state.constracts.map(contract => ( 
+                    {this.state.contracts.map(contract => ( 
                         <TableRow key={contract.id}>
                             <TableCell>{contract.id}</TableCell>
                             <TableCell>{contract.startDate}</TableCell>
                             <TableCell>{contract.endDate}</TableCell>
                             <TableCell>{contract.version}</TableCell>
                             <TableCell><Button variant="contained" size="small" onClick={this.handleEdit}>Edit</Button></TableCell>
-                            <TableCell><Button variant="contained" size="small" onClick={this.handleDelete}>Delete</Button></TableCell>
-                            <TableCell><Button variant="contained" size="small" onClick={this.handleShowContracts}>Details</Button></TableCell>
+                            <TableCell><Button variant="contained" size="small" onClick={() => {this.handleDelete(contract.id)}}>Delete</Button></TableCell>                            <TableCell><Button variant="contained" size="small" onClick={this.handleShowContracts}>Details</Button></TableCell>
                         </TableRow>
                     ))}
                     </TableBody>

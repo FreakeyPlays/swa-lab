@@ -3,7 +3,6 @@ import Contracts from "./ContractsView";
 import Customer from "./CustomerView"; 
 import Users from "./UserView"; 
 import { BrowserRouter, Route, Link, Routes } from "react-router-dom"; 
-import "./Views.css";
 
 import Button from "@mui/material/Button";
 
@@ -21,7 +20,7 @@ class View extends React.Component{
 	}
 
     componentDidMount(){
-        fetch("http://localhost:8080/company/all")
+        fetch(process.env.REACT_APP_API_BASE + "/company/all")
         .then( response => response.json())
         .then( list => {
           console.log(list)

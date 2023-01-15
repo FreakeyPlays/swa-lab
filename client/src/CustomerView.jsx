@@ -1,9 +1,8 @@
 import React from "react";
 import AddCustomer from "./AddCustomer";
-import { Button, ButtonToolbar } from "react-bootstrap";
+import { ButtonToolbar } from "react-bootstrap";
 
 import { Button, Table, TableBody, TableCell, TableHead, TableRow } from "@mui/material";
-import View from "./View";
 
 
 class Customer extends React.Component{
@@ -16,7 +15,7 @@ class Customer extends React.Component{
             };
     }
     componentDidMount(){
-        fetch("http://localhost:8080/company/all")
+        fetch(process.env.REACT_APP_API_BASE + "/company/all")
         .then( response => response.json())
         .then( list => {
           console.log(list)
@@ -30,13 +29,15 @@ class Customer extends React.Component{
     }
     
 
+
     handleDelete = (id) => {
-        fetch("http://localhost:8080/company/remove/"+id, {method: 'DELETE'})
+        console.log(id)
+        fetch(process.env.REACT_APP_API_BASE + "/company/remove/"+id, {method: 'DELETE'})
             .then( response => { 
-                response.json()
                 console.log(response) 
             })
-            .then (() => this.setState({status: 'Delete successful'}));
+            .then (() => this.setState({status: 'Delete successful'}))
+            .then (() => this.componentDidMount())
     }
 
     render() {
@@ -45,7 +46,6 @@ class Customer extends React.Component{
         return(    
             <div className="view">
             <h1>Customers</h1>
-            <Button id="addbtn_customer" className="addbtn" variant="contained" size="medium">Add</Button>
             <AddCustomer show={this.state.showAddCustomer} onHide = {disableAddCustomer}/>
             <Table>
                 <TableHead>
