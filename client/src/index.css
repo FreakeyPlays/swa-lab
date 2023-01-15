@@ -83,7 +83,7 @@ code {
   color: rgb(255, 255, 255);
 }
 
-input[type=text] {
+input.input_add {
   padding: 10px;
   margin: 8px ;
   border: 2px solid #eee;
@@ -101,10 +101,10 @@ Input{
   display: flex; 
 }
 
-.nr {
+#nr {
   width: 95px
 }
-.str{
+#str{
   width: 240px;
 }
 .Button_Submit{

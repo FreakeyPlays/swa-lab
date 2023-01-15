@@ -81,7 +81,7 @@ class Customer extends React.Component{
             <h1>Customers</h1>
             <Button variant="contained" onClick={this.handleModalOpen}>+ Add Customer</Button>
             <Modal
-                open={this.state.modalOpen} 
+                open={this.state.modalOpen} onClose={this.handleModalClose}
                 aria-labelledby="modal-modal-title" aria-describedby="modal-modal-description">
                 
             <Box sx={style}>
@@ -91,20 +91,20 @@ class Customer extends React.Component{
                 <div>
                     <form onSubmit={this.handleModalSubmit}>
                         <div >         
-                            <input type="text" placeholder="Name" name="customerName" />
-                            <input type="text" placeholder="Department" name="department" />
+                            <input type="text" className="input_add" placeholder="Name" name="customerName" />
+                            <input type="text" className="input_add" placeholder="Department" name="department" />
                         </div> 
                         <div className="address">  
-                        <input type="text" className="str" placeholder="Street" name="streetName" />
-                        <input type="text" className="nr" placeholder="Nr." name="houseNumber" />  
+                        <input type="text" id="str" className="input_add" placeholder="Street" name="streetName" />
+                        <input type="text" id="nr" className="input_add" placeholder="Nr." name="houseNumber" />  
                         </div> 
                         <div className="address">
-                            <input type="text" className="nr" placeholder="Zip" name="zipCode" />
-                            <input type="text" className="str" placeholder="City" name="city" />
+                            <input type="text" id="nr" className="input_add" placeholder="Zip" name="zipCode" />
+                            <input type="text" id="str" className="input_add" placeholder="City" name="city" />
                         </div>
                         <div>
-                            <input type="text" placeholder="Area" name="area" />
-                            <input type="text" placeholder="Country" name="country" />
+                            <input type="text" className="input_add" placeholder="Area" name="area" />
+                            <input type="text" className="input_add" placeholder="Country" name="country" />
                         </div>
                                          
                         <div className="Button_Submit">
