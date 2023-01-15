@@ -26,9 +26,7 @@ class Customer extends React.Component{
             
             <div className="view">
             <h1>Contracts</h1>
-            <Button variant="contained" size="medium">Add</Button>
-            <Button className="userbtn" variant="contained" size="large" >User</Button>
-            <Button className="costumerbtn" variant="contained" size="large" >Costumer</Button>
+            <Button id="addbtn_contracts" variant="contained" size="medium">Add</Button>
             <Table>
                 <TableHead>
                     <TableRow>

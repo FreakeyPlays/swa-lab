@@ -2,8 +2,9 @@ import React from "react";
 import Contracts from "./ContractsView"; 
 import Customer from "./CustomerView"; 
 import Users from "./UserView"; 
+import { BrowserRouter, Route, Link, Routes } from "react-router-dom"; 
 
-import "./Views.css";
+
 import Button from "@mui/material/Button";
 import { Stack } from "@mui/material";
 
@@ -15,9 +16,7 @@ class View extends React.Component{
 		super(props);
 	    this.state = {	  
             list: [],
-            customerView: false, 
-            contractsView: false, 
-            userView: false, 
+            
 		};		
 	}
 
@@ -30,46 +29,29 @@ class View extends React.Component{
         })            
     }
 
-    showCustomerTable = () => {
-      this.setState({customerView:true}); 
-    }; 
-
-    showContractsTable = () => {
-      this.setState({contractsView:true}); 
-    }; 
-
-    showUserTable = () => {
-      this.setState({userView:true}); 
-    }; 
-
     render(){
 
-      if(this.state.customerView){
         return(
-          <Customer> </Customer>
+          <BrowserRouter>
+                <div >
+                    <div className="button">
+                    <Button id="customerbtn" variant="contained" size="large"><Link to="/customer">Customers</Link></Button>
+                    <Button id="contractsbtn" variant="contained" size="large"><Link to="/contracts">Conracts</Link></Button>
+                    <Button id="userbtn" variant="contained" size="large"><Link to="/users">Users</Link></Button>
+                    </div>
+                <Routes>
+                    <Route>
+                        <Route exact path="/customer" element={<Customer/>} />
+                        <Route exact path="/contracts" element={<Contracts/>}  />
+                        <Route exact path="/users" element={<Users/>} />
+                    </Route>
+                </Routes>
+                </div>
+            </BrowserRouter>
+
+
         ); 
-      } else {
-          if(this.state.contractsView){
-            return(
-              <Contracts></Contracts>
-            );
-          } else {
-              if(this.state.userView){
-                return(
-                  <Users></Users>
-                );
-              }
-          }
-        }
-        return(
-          <div className="button">
-          <Stack spacing={5}>
-            <Button variant="contained" size="large" onClick={this.showCustomerTable}>Customers</Button>
-            <Button variant="contained" size="large" onClick={this.showContractsTable}>Contracts</Button>
-            <Button variant="contained" size="large" onClick={this.showUserTable}>Users</Button>
-          </Stack>
-          </div>
-        ); 
+
       }        
     }
 

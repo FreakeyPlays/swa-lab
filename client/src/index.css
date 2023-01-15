@@ -50,3 +50,27 @@ code {
   padding: 20px;
   
 }
+
+#customerbtn{
+  margin: 5px;
+}
+
+#addbtn_customer{
+  margin-left: 10px;
+}
+
+#contractsbtn{
+  margin: 5px;
+}
+
+#addbtn_contracts{
+  margin-left: 10px;
+}
+
+#userbtn{
+  margin: 5px;
+}
+
+#addbtn_user{
+  margin-left: 10px;
+}

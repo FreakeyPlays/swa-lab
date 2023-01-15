@@ -21,14 +21,21 @@ class Customer extends React.Component{
         })
     }
 
+    handleDelete = (id) => {
+        fetch("http://localhost:8080/company/remove/"+id, {method: 'DELETE'})
+            .then( response => { 
+                response.json()
+                console.log(response) 
+            })
+            .then (() => this.setState({status: 'Delete successful'}));
+    }
+
     render() {
 
         return(
             <div className="view">
             <h1>Customers</h1>
-            <Button variant="contained" size="medium">Add</Button>
-            <Button className="userbtn" variant="contained" size="large" >User</Button>
-            <Button className="contractsbtn" variant="contained" size="large" onClick={new View(this.state).showContractsTable}>Contracts</Button>
+            <Button id="addbtn_customer" variant="contained" size="medium">Add</Button>
             <Table>
                 <TableHead>
                     <TableRow>
@@ -50,7 +57,7 @@ class Customer extends React.Component{
                             <TableCell>{company.address.houseNumber}</TableCell>
                             <TableCell>{company.address.city}</TableCell>
                             <TableCell><Button variant="contained" size="small" onClick={this.handleEdit}>Edit</Button></TableCell>
-                            <TableCell><Button variant="contained" size="small" onClick={this.handleDelete}>Delete</Button></TableCell>
+                            <TableCell><Button variant="contained" size="small" onClick={() => {this.handleDelete(company.id)}}>Delete</Button></TableCell>
                             <TableCell><Button variant="contained" size="small" onClick={this.handleShowContracts}>Contracts</Button></TableCell>
                             <TableCell><Button variant="contained" size="small" onClick={this.handleShowUsers}>Users</Button></TableCell>
                         </TableRow>
