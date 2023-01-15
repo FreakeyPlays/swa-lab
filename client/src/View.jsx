@@ -35,7 +35,7 @@ class View extends React.Component{
                 <div >
                     <div className="button">
                     <Button id="customerbtn" variant="contained" size="large" ><Link to="/customer" style={{ textDecoration: 'none' }} className="link" >Customers</Link></Button>
-                    <Button id="contractsbtn" variant="contained" size="large"><Link to="/contracts" style={{ textDecoration: 'none' }} className="link">Conracts</Link></Button>
+                    <Button id="contractsbtn" variant="contained" size="large"><Link to="/contracts" style={{ textDecoration: 'none' }} className="link">Contracts</Link></Button>
                     <Button id="userbtn" variant="contained" size="large"><Link to="/users" style={{ textDecoration: 'none' }} className="link">Users</Link></Button>
                     </div>
                 <Routes>
