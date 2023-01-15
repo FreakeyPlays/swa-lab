@@ -3,7 +3,9 @@ import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
-import { Form } from "react-bootstrap";
+import Form from "@mui/material/FormControl"
+import FormControl from "@mui/material/FormControl";
+import { FormGroup, FormLabel, Input } from "@mui/material";
 
 
 const style = {
@@ -61,53 +63,37 @@ class AddCustomer extends React.Component{
                 <Modal
                     open={this.state.open}
                     onClose={this.handleClose} 
+                    aria-labelledby="modal-modal-title"
+                    aria-describedby="modal-modal-description"
                 >
+                
             <Box sx={style}>
+            <Typography id="modal-modal-title" variant="h6" component="h2">
+                Add customer details
+            </Typography>
                 <div>
                     <form onSubmit={this.handleSubmit}>
-                        <div id="Div_CustomerName">
-                            <label>
-                                Customer Name:
-                                <input type="text" name="customerName" />
-                            </label>
+                        <div >         
+                            <input type="text" placeholder="Name" name="customerName" />
+                            <input type="text" placeholder="Department" name="department" />
+                        </div> 
+                        <div className="address">  
+                        <input type="text" className="str" placeholder="Street" name="streetName" />
+                        <input type="text" className="nr" placeholder="Nr." name="houseNumber" />  
+                        </div> 
+                        <div className="address">
+                            <input type="text" className="nr" placeholder="Zip" name="zipCode" />
+                            <input type="text" className="str" placeholder="City" name="city" />
                         </div>
-                        <div id="Div_Department">
-                            <label>
-                                Department:
-                                <input type="text" name="department" />
-                            </label>
+                        <div>
+                            <input type="text" placeholder="Area" name="area" />
+                            <input type="text" placeholder="Country" name="country" />
                         </div>
-                        <div id="Div_Adress">
-                            <h3>Adress:</h3>
-                            <label>
-                                Country:
-                                <input type="text" name="country" />
-                            </label>
-                            <label>
-                                Area:
-                                <input type="text" name="area" />
-                            </label>
-                            <label>
-                                City:
-                                <input type="text" name="city" />
-                            </label>
-                            <label>
-                                Zip Code:
-                                <input type="text" name="zipCode" />
-                            </label>
-                            <label>
-                                Street Name:
-                                <input type="text" name="streetName" />
-                            </label>
-                            <label>
-                                House Number:
-                                <input type="text" name="houseNumber" />
-                            </label>
-                        </div>
+                                         
                         <div className="Button_Submit">
                             <Button variant="contained" type="submit" value="submit">Submit</Button>
                         </div>
-                    </form>
+                    </form>            
                 </div>
             </Box>
                 </Modal>

@@ -37,7 +37,7 @@ class Users extends React.Component{
             <div className="view">
             <h1>Users</h1>
             <Button id="addbtn_user" className="addbtn" variant="contained" size="medium">Add</Button>
-            <Table>
+            <Table className="table">
                 <TableHead>
                     <TableRow>
                         <TableCell>Name</TableCell>
