@@ -1,4 +1,6 @@
 import React from "react";
+import AddCustomer from "./AddCustomer";
+import { Button, ButtonToolbar } from "react-bootstrap";
 
 import { Button, Table, TableBody, TableCell, TableHead, TableRow } from "@mui/material";
 import View from "./View";
@@ -9,8 +11,9 @@ class Customer extends React.Component{
     constructor(props){
         super(props); 
             this.state = {
-                list: []
-            }; 
+                list: [], 
+                showAddCustomer : false 
+            };
     }
     componentDidMount(){
         fetch("http://localhost:8080/company/all")
@@ -20,6 +23,12 @@ class Customer extends React.Component{
           this.setState({list})
         })
     }
+
+    handleAdd = () => {
+        this.setState({showAddCustomer:true});
+        console.log("add clicked");
+    }
+    
 
     handleDelete = (id) => {
         fetch("http://localhost:8080/company/remove/"+id, {method: 'DELETE'})
@@ -31,11 +40,13 @@ class Customer extends React.Component{
     }
 
     render() {
+        let disableAddCustomer = () => this.setState({showAddCustomer:false}); 
 
-        return(
+        return(    
             <div className="view">
             <h1>Customers</h1>
-            <Button id="addbtn_customer" variant="contained" size="medium">Add</Button>
+            <Button id="addbtn_customer" className="addbtn" variant="contained" size="medium">Add</Button>
+            <AddCustomer show={this.state.showAddCustomer} onHide = {disableAddCustomer}/>
             <Table>
                 <TableHead>
                     <TableRow>
