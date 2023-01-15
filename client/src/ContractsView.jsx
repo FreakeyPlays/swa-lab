@@ -3,7 +3,7 @@ import React from "react";
 import { Button, Table, TableBody, TableCell, TableHead, TableRow } from "@mui/material";
 
 
-class Customer extends React.Component{
+class Contracts extends React.Component{
 
     constructor(props){
         super(props); 
@@ -44,9 +44,9 @@ class Customer extends React.Component{
                         <TableCell>Start</TableCell>
                         <TableCell>End</TableCell>
                         <TableCell>Version</TableCell>
-                        <TableCell></TableCell> 
-                        <TableCell></TableCell> 
-                        <TableCell></TableCell>     
+                        <TableCell></TableCell>
+                        <TableCell></TableCell>
+                        <TableCell></TableCell>
                     </TableRow>
                 </TableHead>
                     <TableBody>
@@ -57,7 +57,8 @@ class Customer extends React.Component{
                             <TableCell>{contract.endDate}</TableCell>
                             <TableCell>{contract.version}</TableCell>
                             <TableCell><Button variant="contained" size="small" onClick={this.handleEdit}>Edit</Button></TableCell>
-                            <TableCell><Button variant="contained" size="small" onClick={() => {this.handleDelete(contract.id)}}>Delete</Button></TableCell>                            <TableCell><Button variant="contained" size="small" onClick={this.handleShowContracts}>Details</Button></TableCell>
+                            <TableCell><Button variant="contained" size="small" onClick={() => {this.handleDelete(contract.id)}}>Delete</Button></TableCell>
+                            <TableCell><Button variant="contained" size="small" onClick={this.handleShowContracts}>Details</Button></TableCell>
                         </TableRow>
                     ))}
                     </TableBody>
@@ -68,4 +69,4 @@ class Customer extends React.Component{
 }
 
 
-export default Customer; 
+export default Contracts; 

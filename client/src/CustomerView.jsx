@@ -24,7 +24,8 @@ class Customer extends React.Component{
             this.state = {
                 list: [], 
                 showAddCustomer : false,
-                modalOpen: false
+                modalOpen: false,
+                editModalOpen: 0
             };
     }
     componentDidMount(){
@@ -52,6 +53,13 @@ class Customer extends React.Component{
     handleModalOpen = () =>{
         this.setState({modalOpen:true});
     }
+
+    handleEditModalClose = () => {
+        this.setState({editModalOpen:0});
+    }
+    handleEditModalOpen = (id) =>{
+        this.setState({editModalOpen:id});
+    }
     handleModalSubmit = (e) =>{
         e.preventDefault()
         let payload={
@@ -71,6 +79,30 @@ class Customer extends React.Component{
                 console.log(response) 
             })
             .then (() => this.handleModalClose())
+            .then (() => this.componentDidMount()) 
+    }
+
+    handleEditModalSubmit = (e) =>{
+        e.preventDefault()
+        let payload={
+            "companyName": e.target.customerName.value,
+            "department": e.target.department.value,
+            "id": e.target.id.value,
+            "address": {
+                "country": e.target.country.value,
+                "area": e.target.area.value,
+                "city": e.target.city.value,
+                "zipCode": e.target.zipCode.value,
+                "streetName": e.target.streetName.value,
+                "houseNumber": e.target.houseNumber.value,
+                "id": e.target.id.value,
+            }
+        }
+        fetch(process.env.REACT_APP_API_BASE + "/company/update", {method: 'PUT', headers:{'Content-Type':"application/json"},body: JSON.stringify(payload)})
+            .then( response => { 
+                console.log(response) 
+            })
+            .then (() => this.handleEditModalClose())
             .then (() => this.componentDidMount()) 
     }
 
@@ -134,8 +166,44 @@ class Customer extends React.Component{
                             <TableCell>{company.address.streetName}</TableCell>
                             <TableCell>{company.address.houseNumber}</TableCell>
                             <TableCell>{company.address.city}</TableCell>
-                            <TableCell><Button variant="contained" size="small" onClick={this.handleEdit}>Edit</Button></TableCell>
-                            <TableCell><Button variant="contained" size="small" onClick={() => {this.handleDelete(company.id)}}>Delete</Button></TableCell>
+                            <TableCell>
+                                <Button variant="contained" onClick={() =>{this.handleEditModalOpen(company.id)}}>Edit</Button>
+                                <Modal open={this.state.editModalOpen===company.id} onClose={this.handleEditModalClose}
+                                       aria-labelledby="modal-modal-title" aria-describedby="modal-modal-description"
+                                       >
+            <Box sx={style}>
+            <Typography id="modal-modal-title" variant="h6" component="h2">
+                Edit customer details
+            </Typography>
+                <div>
+                    <form onSubmit={this.handleEditModalSubmit}>
+                        <div >         
+                            <input type="text" className="input_edit" name="customerName" defaultValue={company.companyName} />
+                            <input type="text" className="input_edit" name="department" defaultValue={company.department} />
+                            <input type="text" className="input_edit" name="id" defaultValue={company.id} disabled />
+                        </div> 
+                        <div className="address">  
+                        <input type="text" id="str" className="input_edit" name="streetName" defaultValue={company.address.streetName} />
+                        <input type="text" id="nr" className="input_edit" name="houseNumber" defaultValue={company.address.houseNumber} />  
+                        </div> 
+                        <div className="address">
+                            <input type="text" id="nr" className="input_edit" name="zipCode" defaultValue={company.address.zipCode} />
+                            <input type="text" id="str" className="input_edit" name="city" defaultValue={company.address.city} />
+                        </div>
+                        <div>
+                            <input type="text" className="input_edit" name="area" defaultValue={company.address.area} />
+                            <input type="text" className="input_edit" name="country" defaultValue={company.address.country} />
+                        </div>
+                                         
+                        <div className="Button_Submit">
+                            <Button variant="contained" type="submit" value="submit">Submit Edit</Button>
+                        </div>
+                    </form>            
+                </div>
+            </Box>
+                </Modal>    
+                            </TableCell>
+                            <TableCell><Button variant="contained" onClick={() => {this.handleDelete(company.id)}}>Delete</Button></TableCell>
                             <TableCell><Button variant="contained" size="small" onClick={this.handleShowContracts}>Contracts</Button></TableCell>
                             <TableCell><Button variant="contained" size="small" onClick={this.handleShowUsers}>Users</Button></TableCell>
                         </TableRow>

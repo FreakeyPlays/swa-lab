@@ -91,6 +91,14 @@ input.input_add {
   box-shadow:0 0 15px 4px rgba(0,0,0,0.06);
 }
 
+input.input_edit {
+  padding: 10px;
+  margin: 8px ;
+  border: 2px solid #eee;
+  border-radius:10px;
+  box-shadow:0 0 15px 4px rgba(0,0,0,0.06);
+}
+
 Input{
   display: flex;
   justify-content: left;
