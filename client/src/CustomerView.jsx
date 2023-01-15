@@ -1,8 +1,9 @@
 import React from "react";
-//import AddCustomer from "./AddCustomer";
 import { ButtonToolbar } from "react-bootstrap";
-
-import { Button, Table, TableBody, TableCell, TableHead, TableRow, Modal, Box } from "@mui/material";
+import { Button, Table, TableBody, TableCell, TableHead, TableRow, Typography, Modal, Box } from "@mui/material";
+import Form from "@mui/material/FormControl"
+import FormControl from "@mui/material/FormControl";
+import { FormGroup, FormLabel, Input } from "@mui/material";
 
 const style = {
     position: 'absolute',
@@ -35,9 +36,16 @@ class Customer extends React.Component{
         })
     }
 
-    handleAdd = () => {
-        this.setState({showAddCustomer:true});
-        console.log("add clicked");
+
+
+    handleDelete = (id) => {
+        console.log(id)
+        fetch(process.env.REACT_APP_API_BASE + "/company/remove/"+id, {method: 'DELETE'})
+            .then( response => { 
+                console.log(response) 
+            })
+            .then (() => this.setState({status: 'Delete successful'}))
+            .then (() => this.componentDidMount())
     }
     
     handleDelete = (id) => {
@@ -84,57 +92,43 @@ class Customer extends React.Component{
             <div className="view">
             <h1>Customers</h1>
             <Button variant="contained" onClick={this.handleModalOpen}>+ Add Customer</Button>
-            <Modal  open={this.state.modalOpen} onClose={this.handleModalClose}
+            <Modal
+                    open={this.state.open}
+                    onClose={this.handleClose} 
+                    aria-labelledby="modal-modal-title"
+                    aria-describedby="modal-modal-description"
                 >
-                <Box sx={style}>
+                
+            <Box sx={style}>
+            <Typography id="modal-modal-title" variant="h6" component="h2">
+                Add customer details
+            </Typography>
                 <div>
-                    <form onSubmit={this.handleModalSubmit}>
-                        <div id="Div_CustomerName">
-                            <label>
-                                Customer Name:
-                                <input type="text" name="customerName" />
-                            </label>
+                    <form onSubmit={this.handleSubmit}>
+                        <div >         
+                            <input type="text" placeholder="Name" name="customerName" />
+                            <input type="text" placeholder="Department" name="department" />
+                        </div> 
+                        <div className="address">  
+                        <input type="text" className="str" placeholder="Street" name="streetName" />
+                        <input type="text" className="nr" placeholder="Nr." name="houseNumber" />  
+                        </div> 
+                        <div className="address">
+                            <input type="text" className="nr" placeholder="Zip" name="zipCode" />
+                            <input type="text" className="str" placeholder="City" name="city" />
                         </div>
-                        <div id="Div_Department">
-                            <label>
-                                Department:
-                                <input type="text" name="department" />
-                            </label>
+                        <div>
+                            <input type="text" placeholder="Area" name="area" />
+                            <input type="text" placeholder="Country" name="country" />
                         </div>
-                        <div id="Div_Adress">
-                            <h3>Adress:</h3>
-                            <label>
-                                Country:
-                                <input type="text" name="country" />
-                            </label>
-                            <label>
-                                Area:
-                                <input type="text" name="area" />
-                            </label>
-                            <label>
-                                City:
-                                <input type="text" name="city" />
-                            </label>
-                            <label>
-                                Zip Code:
-                                <input type="text" name="zipCode" />
-                            </label>
-                            <label>
-                                Street Name:
-                                <input type="text" name="streetName" />
-                            </label>
-                            <label>
-                                House Number:
-                                <input type="text" name="houseNumber" />
-                            </label>
-                        </div>
+                                         
                         <div className="Button_Submit">
                             <Button variant="contained" type="submit" value="submit">Submit</Button>
                         </div>
-                    </form>
+                    </form>            
                 </div>
-                </Box>
-            </Modal>
+            </Box>
+                </Modal>
             <Table>
                 <TableHead>
                     <TableRow>
