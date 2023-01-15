@@ -35,18 +35,6 @@ class Customer extends React.Component{
           this.setState({list})
         })
     }
-
-
-
-    handleDelete = (id) => {
-        console.log(id)
-        fetch(process.env.REACT_APP_API_BASE + "/company/remove/"+id, {method: 'DELETE'})
-            .then( response => { 
-                console.log(response) 
-            })
-            .then (() => this.setState({status: 'Delete successful'}))
-            .then (() => this.componentDidMount())
-    }
     
     handleDelete = (id) => {
         console.log(id)
@@ -93,18 +81,15 @@ class Customer extends React.Component{
             <h1>Customers</h1>
             <Button variant="contained" onClick={this.handleModalOpen}>+ Add Customer</Button>
             <Modal
-                    open={this.state.open}
-                    onClose={this.handleClose} 
-                    aria-labelledby="modal-modal-title"
-                    aria-describedby="modal-modal-description"
-                >
+                open={this.state.modalOpen} 
+                aria-labelledby="modal-modal-title" aria-describedby="modal-modal-description">
                 
             <Box sx={style}>
             <Typography id="modal-modal-title" variant="h6" component="h2">
                 Add customer details
             </Typography>
                 <div>
-                    <form onSubmit={this.handleSubmit}>
+                    <form onSubmit={this.handleModalSubmit}>
                         <div >         
                             <input type="text" placeholder="Name" name="customerName" />
                             <input type="text" placeholder="Department" name="department" />
