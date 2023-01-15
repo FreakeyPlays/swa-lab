@@ -50,3 +50,47 @@ code {
   padding: 20px;
   
 }
+
+#customerbtn{
+  margin: 5px;
+}
+
+#addbtn_customer{
+  margin-left: 10px;
+}
+
+#contractsbtn{
+  margin: 5px;
+}
+
+#addbtn_contracts{
+  margin-left: 10px;
+}
+
+#userbtn{
+  margin: 5px;
+}
+
+#addbtn_user{
+  margin-left: 10px;
+}
+
+.button {
+  margin-top: 50px;   
+  display: flex;
+  justify-content: space-evenly;
+  margin-left: 300px;
+  margin-right: 300px;
+     
+  
+}
+
+.view{
+  margin-left: 30px;
+  margin-right: 30px;
+
+}
+
+.link{
+  color: rgb(255, 255, 255);
+}

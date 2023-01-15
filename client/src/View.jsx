@@ -3,7 +3,6 @@ import Contracts from "./ContractsView";
 import Customer from "./CustomerView"; 
 import Users from "./UserView"; 
 import { BrowserRouter, Route, Link, Routes } from "react-router-dom"; 
-import "./Views.css";
 
 import Button from "@mui/material/Button";
 
@@ -16,11 +15,12 @@ class View extends React.Component{
 	    this.state = {	  
             list: [],
             
+            
 		};		
 	}
 
     componentDidMount(){
-        fetch("http://localhost:8080/company/all")
+        fetch(process.env.REACT_APP_API_BASE + "/company/all")
         .then( response => response.json())
         .then( list => {
           console.log(list)
@@ -34,9 +34,9 @@ class View extends React.Component{
           <BrowserRouter>
                 <div >
                     <div className="button">
-                    <Button variant="contained" size="large" ><Link to="/customer" style={{ textDecoration: 'none' }} className="link" >Customers</Link></Button>
-                    <Button variant="contained" size="large"><Link to="/contracts" style={{ textDecoration: 'none' }} className="link">Conracts</Link></Button>
-                    <Button variant="contained" size="large"><Link to="/users" style={{ textDecoration: 'none' }} className="link">Users</Link></Button>
+                    <Button id="customerbtn" variant="contained" size="large" ><Link to="/customer" style={{ textDecoration: 'none' }} className="link" >Customers</Link></Button>
+                    <Button id="contractsbtn" variant="contained" size="large"><Link to="/contracts" style={{ textDecoration: 'none' }} className="link">Conracts</Link></Button>
+                    <Button id="userbtn" variant="contained" size="large"><Link to="/users" style={{ textDecoration: 'none' }} className="link">Users</Link></Button>
                     </div>
                 <Routes>
                     <Route>
@@ -50,6 +50,7 @@ class View extends React.Component{
 
 
         ); 
+
 
       }        
     }

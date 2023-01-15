@@ -12,12 +12,22 @@ class Users extends React.Component{
             }; 
     }
     componentDidMount(){
-        fetch("http://localhost:8080/user/all")
+        fetch(process.env.REACT_APP_API_BASE + "/user/all")
         .then( response => response.json())
         .then( users => {
           console.log(users)
           this.setState({users})
         })
+    }
+
+    handleDelete = (id) => {
+        console.log(id)
+        fetch(process.env.REACT_APP_API_BASE + "/user/remove/"+id, {method: 'DELETE'})
+            .then( response => { 
+                console.log(response) 
+            })
+            .then (() => this.setState({status: 'Delete successful'}))
+            .then (() => this.componentDidMount())
     }
 
     render() {
@@ -26,7 +36,7 @@ class Users extends React.Component{
             
             <div className="view">
             <h1>Users</h1>
-            <Button variant="contained" size="medium">Add</Button>
+            <Button id="addbtn_user" className="addbtn" variant="contained" size="medium">Add</Button>
             <Table>
                 <TableHead>
                     <TableRow>
@@ -45,7 +55,7 @@ class Users extends React.Component{
                             <TableCell>{user.lastName}</TableCell>
                             <TableCell>{user.email}</TableCell>
                             <TableCell><Button variant="contained" size="small" onClick={this.handleEdit}>Edit</Button></TableCell>
-                            <TableCell><Button variant="contained" size="small" onClick={this.handleDelete}>Delete</Button></TableCell>
+                            <TableCell><Button variant="contained" size="small" onClick={() => {this.handleDelete(user.id)}}>Delete</Button></TableCell>
                             
                         </TableRow>
                     ))}
