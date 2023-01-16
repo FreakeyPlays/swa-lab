@@ -55,29 +55,35 @@ class Contracts extends React.Component{
             "startDate": e.target.startDate.value,
             "endDate": e.target.endDate.value,
             "version": e.target.version.value,
+            "companyId": {
+                "id": e.target.id.value,
+            },
             "ips": [
                 {
-                    "address":e.target..value
+                    "address":e.target.address.value
                 },
                 {
-                    "address":e.target..value
+                    "address":e.target.address.value
                 }
             ],
             "users": [
                 {
-                    "id": e.target.version.value
+                    "id": e.target.id.value
                 }
             ],
             "features": [
                 {
-                    "number": e.target.version.value
+                    "number": e.target.number.value
                 },
                 {
-                    "number": e.target.version.value
+                    "number": e.target.number.value
                 }
             ]
         }
-        fetch(process.env.REACT_APP_API_BASE + "/contract/create", {method: 'POST', headers:{'Content-Type':"application/json"},body: JSON.stringify(payload)})
+        fetch(process.env.REACT_APP_API_BASE + "/contract/create", 
+        {method: 'POST', 
+        headers:{'Content-Type':"application/json"},
+        body: (payload)})
             .then( response => { 
                 console.log(response) 
             })
@@ -111,9 +117,17 @@ class Contracts extends React.Component{
                         <input type="text" id="nr" className="input_add" placeholder="version" name="version" />  
                         </div> 
                         <div className="address">
-                            <input type="text" id="nr" className="input_add" placeholder="CompanyID" name="companyId" />
-                            <input type="text" id="str" className="input_add" placeholder="ISP" name="address" />
-                        </div>                                        
+                            <input type="text" id="nr" className="input_add" placeholder="CompanyID" name="id" />
+                            <input type="text" id="nr" className="input_add" placeholder="UserID" name="id" />
+                        </div>          
+                        <div >         
+                            <input type="text" id="str" className="input_add" placeholder="IP-Address" name="address" />
+                            <input type="text" id="str" className="input_add" placeholder="IP-Address" name="address" />
+                        </div>      
+                        <div >         
+                            <input type="text" id="str" className="input_add" placeholder="Feature1" name="number" />
+                            <input type="text" id="str" className="input_add" placeholder="Feature2" name="number" />
+                        </div>                            
                         <div className="Button_Submit">
                             <Button variant="contained" type="submit" value="submit">Submit</Button>
                         </div>
