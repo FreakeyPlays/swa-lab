@@ -142,9 +142,9 @@ class Contracts extends React.Component{
                         <TableCell>Start</TableCell>
                         <TableCell>End</TableCell>
                         <TableCell>Version</TableCell>
-                        <TableCell></TableCell> 
-                        <TableCell></TableCell> 
-                        <TableCell></TableCell>     
+                        <TableCell></TableCell>
+                        <TableCell></TableCell>
+                        <TableCell></TableCell>
                     </TableRow>
                 </TableHead>
                     <TableBody>
