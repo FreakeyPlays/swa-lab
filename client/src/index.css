@@ -5,9 +5,119 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: rgb(184, 184, 184);
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.center{
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vH; 
+  justify-content: center; 
+}
+
+.loginbox, .loginform {
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+}
+
+.formContrl {
+  margin-top: 5px;
+  padding: 10px;
+}
+
+.usernamefield>div{
+  margin: 10px;
+}
+
+.error {
+  display:none;
+  background-color: lightpink;
+  color: firebrick;
+  font-weight: bold;
+  padding: 3px;
+}
+
+.buttonRightAlign{
+  margin-top: 20px;
+  padding: 20px;
+  
+}
+
+#customerbtn{
+  margin: 5px;
+}
+
+#contractsbtn{
+  margin: 5px;
+}
+
+#userbtn{
+  margin: 5px;
+}
+
+.button {
+  margin-top: 50px;   
+  display: flex;
+  justify-content: space-evenly;
+  margin-left: 300px;
+  margin-right: 300px;
+     
+  
+}
+
+.view{
+  margin-left: 30px;
+  margin-right: 30px;
+
+}
+
+.link{
+  color: rgb(255, 255, 255);
+}
+
+input.input_add {
+  padding: 10px;
+  margin: 8px ;
+  border: 2px solid #eee;
+  border-radius:10px;
+  box-shadow:0 0 15px 4px rgba(0,0,0,0.06);
+}
+
+input.input_edit {
+  padding: 10px;
+  margin: 8px ;
+  border: 2px solid #eee;
+  border-radius:10px;
+  box-shadow:0 0 15px 4px rgba(0,0,0,0.06);
+}
+
+Input{
+  display: flex;
+  justify-content: left;
+  width: 90%;
+}
+
+.address{
+  display: flex; 
+}
+
+#nr {
+  width: 95px
+}
+#str{
+  width: 240px;
+}
+.Button_Submit{
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  
 }
